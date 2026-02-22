@@ -1,0 +1,29 @@
+{
+	"version": 2,
+	"updatedAt": "2026-02-22",
+	"stocks_jp": [
+		{ "ticker": "1326.T", "name": "SPDRゴールド", "shares": 94, "cost": 43166, "alertDown": -3, "alertUp": 3 },
+		{ "ticker": "1542.T", "name": "純銀信託", "shares": 23, "cost": 29581, "alertDown": -4, "alertUp": 4 }
+	],
+	"funds_jp": [
+		{ "name": "eMAXIS Slim 全世界株式（オール・カントリー）", "units": 598200, "cost": 27583 }
+	],
+	"stocks_us": [
+		{ "ticker": "ETN", "name": "イートン", "shares": 1, "cost": 352.24, "alertDown": -3, "alertUp": 3 },
+		{ "ticker": "IONQ", "name": "IonQ", "shares": 2, "cost": 62.58, "alertDown": -5, "alertUp": 5 },
+		{ "ticker": "MDB", "name": "MongoDB", "shares": 5, "cost": 280.07, "alertDown": -4, "alertUp": 4 },
+		{ "ticker": "NVDA", "name": "エヌビディア", "shares": 35, "cost": 167.44, "alertDown": -3, "alertUp": 3 },
+		{ "ticker": "PLTR", "name": "パランティア", "shares": 17, "cost": 149.39, "alertDown": -4, "alertUp": 4 },
+		{ "ticker": "QBTS", "name": "D-Wave Quantum", "shares": 3, "cost": 37.14, "alertDown": -5, "alertUp": 5 },
+		{ "ticker": "RGTI", "name": "リゲッティ", "shares": 2, "cost": 44.49, "alertDown": -5, "alertUp": 5 },
+		{ "ticker": "SPY", "name": "S&P500 ETF", "shares": 14, "cost": 619.56, "alertDown": -2, "alertUp": 2 },
+		{ "ticker": "TSLA", "name": "テスラ", "shares": 10, "cost": 336.42, "alertDown": -4, "alertUp": 4 },
+		{ "ticker": "TSM", "name": "台湾セミコン", "shares": 11, "cost": 234.70, "alertDown": -3, "alertUp": 3 },
+		{ "ticker": "URA", "name": "ウラニウムETF", "shares": 25, "cost": 57.30, "alertDown": -4, "alertUp": 4 },
+		{ "ticker": "VRT", "name": "バーティブ", "shares": 2, "cost": 186.32, "alertDown": -4, "alertUp": 4 }
+	],
+	"indices": [
+		{ "ticker": "^N225", "name": "日経平均" },
+		{ "ticker": "^GSPC", "name": "S&P500" }
+	]
+}

@@ -1,0 +1,42 @@
+# Claw internal / cache
+openclaw.json.bak*
+update-check.json
+logs/
+browser/
+canvas/
+completions/
+media/
+subagents/
+devices/
+identity/
+
+# Node
+workspace/node_modules/
+workspace/package-lock.json
+
+# Symlinks to other repos
+workspace/rules
+
+# Claw runtime
+cron/*.log
+cron/*.tmp
+cron/*.bak
+cron/state.json
+cron/runs/
+
+# Session logs (large, machine-generated)
+agents/*/sessions/
+agents/*/agent/
+
+# Old business agents
+agents/ops-coach/
+
+# Old business workspace files
+workspace/process-chatwork.js
+workspace/fetch-chatwork.sh
+workspace/sarara.jpg
+workspace/HEARTBEAT.md
+workspace/AGENTS.md
+workspace/IDENTITY.md
+workspace/SOUL.md
+workspace/USER.md

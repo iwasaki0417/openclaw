@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.2.9",
+    "lastTouchedAt": "2026-02-15T07:56:22.468Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-02-12T13:06:58.104Z",
+    "lastRunVersion": "2026.2.9",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "auth": {
+    "profiles": {
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "api_key"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "anthropic/claude-opus-4-6"
+      },
+      "models": {
+        "anthropic/claude-opus-4-6": {
+          "alias": "opus"
+        }
+      },
+      "workspace": "/Users/iwasakikyou/.openclaw/workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    }
+  },
+  "messages": {
+    "ackReaction": "eyes",
+    "ackReactionScope": "all",
+    "removeAckAfterReply": true
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto"
+  },
+  "channels": {
+    "slack": {
+      "mode": "socket",
+      "webhookPath": "/slack/events",
+      "enabled": false
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "7a22f60359e86fa4a23ada71126d9fa673b23243dd0cd09a"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "calendar.add",
+        "contacts.add",
+        "reminders.add"
+      ]
+    }
+  },
+  "plugins": {
+    "entries": {
+      "slack": {
+        "enabled": false
+      }
+    }
+  }
+}
