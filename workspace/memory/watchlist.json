@@ -1,5 +1,5 @@
 {
-	"version": 2,
+	"version": 3,
 	"updatedAt": "2026-02-22",
 	"stocks_jp": [
 		{ "ticker": "1326.T", "name": "SPDRゴールド", "shares": 94, "cost": 43166, "alertDown": -3, "alertUp": 3 },
@@ -21,6 +21,35 @@
 		{ "ticker": "TSM", "name": "台湾セミコン", "shares": 11, "cost": 234.70, "alertDown": -3, "alertUp": 3 },
 		{ "ticker": "URA", "name": "ウラニウムETF", "shares": 25, "cost": 57.30, "alertDown": -4, "alertUp": 4 },
 		{ "ticker": "VRT", "name": "バーティブ", "shares": 2, "cost": 186.32, "alertDown": -4, "alertUp": 4 }
+	],
+	"spotBuy": [
+		{
+			"ticker": "TSM",
+			"name": "台湾セミコン",
+			"levels": [
+				{ "tag": "注目", "price": 333, "suggest": "11株（約57万円）" },
+				{ "tag": "買い場接近", "price": 296, "suggest": "16株（約74万円）" },
+				{ "tag": "絶好の買い場", "price": 259, "suggest": "22株（約88万円）" }
+			]
+		},
+		{
+			"ticker": "VRT",
+			"name": "バーティブ",
+			"levels": [
+				{ "tag": "注目", "price": 219, "suggest": "2株（約7万円）" },
+				{ "tag": "買い場接近", "price": 195, "suggest": "3株（約9万円）" },
+				{ "tag": "絶好の買い場", "price": 171, "suggest": "4株（約11万円）" }
+			]
+		},
+		{
+			"ticker": "ETN",
+			"name": "イートン",
+			"levels": [
+				{ "tag": "注目", "price": 336, "suggest": "1株（約5万円）" },
+				{ "tag": "買い場接近", "price": 299, "suggest": "2株（約9万円）" },
+				{ "tag": "絶好の買い場", "price": 261, "suggest": "3株（約12万円）" }
+			]
+		}
 	],
 	"indices": [
 		{ "ticker": "^N225", "name": "日経平均" },

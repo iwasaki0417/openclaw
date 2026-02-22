@@ -1,5 +1,202 @@
 {
-	"lastChecked": null,
-	"lastSummary": { "jp": null, "us": null },
-	"prices": {}
+	"lastChecked": "2026-02-22T12:00:00+09:00",
+	"lastSummary": { "jp": "2026-02-22", "us": "2026-02-22" },
+	"usdjpy": 154.989,
+	"sbiSnapshot": {
+		"date": "2026-02-22",
+		"totalValue": 15012317,
+		"totalPnl": 3963766,
+		"totalPnlPct": 35.87,
+		"cash": { "usdDeposit": 7560, "sweepAccount": 610112 }
+	},
+	"prices": {
+		"1326.T": {
+			"name": "SPDRゴールド",
+			"price": 71640,
+			"prevClose": 71320,
+			"changePct": 0.45,
+			"shares": 94,
+			"cost": 43166,
+			"costTotal": 4057604,
+			"value": 6734160,
+			"pnl": 2676556,
+			"pnlPct": 65.93
+		},
+		"1542.T": {
+			"name": "純銀信託",
+			"price": 36300,
+			"prevClose": 35740,
+			"changePct": 1.57,
+			"shares": 23,
+			"cost": 29581,
+			"costTotal": 680363,
+			"value": 834900,
+			"pnl": 154537,
+			"pnlPct": 22.71
+		},
+		"^N225": { "name": "日経平均", "price": 56825.7, "prevClose": 57467.83, "changePct": -1.12 },
+		"^GSPC": { "name": "S&P500", "price": 6909.51, "prevClose": 6861.89, "changePct": 0.69 },
+		"ETN": {
+			"name": "イートン",
+			"price": 373.38,
+			"prevClose": 377.32,
+			"changePct": -1.04,
+			"shares": 1,
+			"cost": 352.24,
+			"pnlUsd": 21.14,
+			"pnlJpy": 3276,
+			"valueUsd": 373.38,
+			"valueJpy": 57873
+		},
+		"IONQ": {
+			"name": "IonQ",
+			"price": 31.90,
+			"prevClose": 33.43,
+			"changePct": -4.58,
+			"shares": 2,
+			"cost": 62.58,
+			"pnlUsd": -61.36,
+			"pnlJpy": -9510,
+			"valueUsd": 63.80,
+			"valueJpy": 9888
+		},
+		"MDB": {
+			"name": "MongoDB",
+			"price": 344.56,
+			"prevClose": 355.89,
+			"changePct": -3.18,
+			"shares": 5,
+			"cost": 280.07,
+			"pnlUsd": 322.45,
+			"pnlJpy": 49977,
+			"valueUsd": 1722.80,
+			"valueJpy": 267024
+		},
+		"NVDA": {
+			"name": "エヌビディア",
+			"price": 189.82,
+			"prevClose": 187.90,
+			"changePct": 1.02,
+			"shares": 35,
+			"cost": 167.44,
+			"pnlUsd": 783.30,
+			"pnlJpy": 121403,
+			"valueUsd": 6643.70,
+			"valueJpy": 1029740
+		},
+		"PLTR": {
+			"name": "パランティア",
+			"price": 135.24,
+			"prevClose": 134.89,
+			"changePct": 0.26,
+			"shares": 17,
+			"cost": 149.39,
+			"pnlUsd": -240.55,
+			"pnlJpy": -37283,
+			"valueUsd": 2299.08,
+			"valueJpy": 356341
+		},
+		"QBTS": {
+			"name": "D-Wave Quantum",
+			"price": 18.06,
+			"prevClose": 19.38,
+			"changePct": -6.81,
+			"shares": 3,
+			"cost": 37.14,
+			"pnlUsd": -57.24,
+			"pnlJpy": -8872,
+			"valueUsd": 54.18,
+			"valueJpy": 8398
+		},
+		"RGTI": {
+			"name": "リゲッティ",
+			"price": 15.92,
+			"prevClose": 16.60,
+			"changePct": -4.10,
+			"shares": 2,
+			"cost": 44.49,
+			"pnlUsd": -57.14,
+			"pnlJpy": -8856,
+			"valueUsd": 31.84,
+			"valueJpy": 4935
+		},
+		"SPY": {
+			"name": "S&P500 ETF",
+			"price": 689.43,
+			"prevClose": 684.48,
+			"changePct": 0.72,
+			"shares": 14,
+			"cost": 619.56,
+			"pnlUsd": 978.18,
+			"pnlJpy": 151611,
+			"valueUsd": 9652.02,
+			"valueJpy": 1496002
+		},
+		"TSLA": {
+			"name": "テスラ",
+			"price": 411.82,
+			"prevClose": 411.71,
+			"changePct": 0.03,
+			"shares": 10,
+			"cost": 336.42,
+			"pnlUsd": 754.00,
+			"pnlJpy": 116861,
+			"valueUsd": 4118.20,
+			"valueJpy": 638296
+		},
+		"TSM": {
+			"name": "台湾セミコン",
+			"price": 370.54,
+			"prevClose": 360.39,
+			"changePct": 2.82,
+			"shares": 11,
+			"cost": 234.70,
+			"pnlUsd": 1494.24,
+			"pnlJpy": 231598,
+			"valueUsd": 4075.94,
+			"valueJpy": 631746
+		},
+		"URA": {
+			"name": "ウラニウムETF",
+			"price": 54.36,
+			"prevClose": 53.92,
+			"changePct": 0.82,
+			"shares": 25,
+			"cost": 57.30,
+			"pnlUsd": -73.50,
+			"pnlJpy": -11392,
+			"valueUsd": 1359.00,
+			"valueJpy": 210637
+		},
+		"VRT": {
+			"name": "バーティブ",
+			"price": 243.75,
+			"prevClose": 243.06,
+			"changePct": 0.28,
+			"shares": 2,
+			"cost": 186.32,
+			"pnlUsd": 114.86,
+			"pnlJpy": 17802,
+			"valueUsd": 487.50,
+			"valueJpy": 75558
+		}
+	},
+	"summary": {
+		"jp": {
+			"value": 7569060,
+			"pnl": 2831093,
+			"pnlPct": 59.75
+		},
+		"us": {
+			"valueUsd": 30881.44,
+			"valueJpy": 4786543,
+			"pnlUsd": 3978.38,
+			"pnlJpy": 616567
+		},
+		"funds": {
+			"value": 2031247,
+			"pnl": 381232,
+			"pnlPct": 23.10
+		}
+	}
 }

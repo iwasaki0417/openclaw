@@ -35,7 +35,6 @@ date "+%u %H%M"
 ```bash
 UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 
-# 日本株（例: 1326.T）
 curl -s -A "$UA" "https://query1.finance.yahoo.com/v8/finance/chart/1326.T?interval=1d&range=1d" \
   | python3 -c "
 import json, sys
@@ -50,65 +49,104 @@ print(json.dumps({
   'changePct': round((meta['regularMarketPrice'] - meta['chartPreviousClose']) / meta['chartPreviousClose'] * 100, 2)
 }))
 "
-
-# 米国株も同じ形式（ticker部分を変えるだけ）
 ```
 
-全銘柄を1つずつ取得する。レート制限回避のため各リクエスト間に `sleep 2` を入れる。
+全銘柄を1つずつ取得。各リクエスト間に `sleep 2`。
 
-**損益計算:**
-各銘柄の `cost`（取得単価）と `shares`（保有数量）から評価損益を算出する。
+### 為替レート取得（米国株チェック時）
 
-```
-評価損益 = (現在値 - 取得単価) × 保有数量
-損益率 = (現在値 - 取得単価) / 取得単価 × 100
-```
-
-## Step 3: アラート判定
-
-各銘柄について:
-1. `changePct`（前日比）が `alertDown` 以下 → 📉 急落アラート
-2. `changePct`（前日比）が `alertUp` 以上 → 📈 急騰アラート
-
-**アラートがある場合:**
+米国株を取得する際は、最初に USD/JPY レートを取得する。
 
 ```bash
-osascript -e 'display notification "SPDRゴールド +3.5%（71,640円）\n評価益: +2,676,556円" with title "📈 株価アラート" sound name "Glass"'
+curl -s -A "$UA" "https://query1.finance.yahoo.com/v8/finance/chart/USDJPY=X?interval=1d&range=1d" \
+  | python3 -c "
+import json, sys
+d = json.load(sys.stdin)
+meta = d['chart']['result'][0]['meta']
+print(meta['regularMarketPrice'])
+"
 ```
+
+取得した為替レートを全米国株の円換算に使用する。
+
+### 損益計算
+
+**日本株:**
+- 評価損益 = (現在値 - 取得単価) × 保有数量
+- 損益率 = (現在値 - 取得単価) / 取得単価 × 100
+
+**米国株（USD建て + 円換算）:**
+- 評価損益(USD) = (現在値 - 取得単価) × 保有数量
+- 円換算評価額 = 現在値 × 保有数量 × USD/JPYレート
+- 円換算評価損益 = 評価損益(USD) × USD/JPYレート
+
+## Step 3: アラート判定 + 理由検索
+
+- `changePct` ≤ `alertDown` → 📉 急落アラート
+- `changePct` ≥ `alertUp` → 📈 急騰アラート
+
+### アラート発火時: Brave Searchで理由を取得
+
+アラート条件に該当した銘柄について、Brave News APIで直近ニュースを検索する。
+
+```bash
+curl -s -H "Accept: application/json" \
+  -H "Accept-Encoding: gzip" \
+  -H "X-Subscription-Token: BSAlseaSif-ZMsqyEqYYLmee9XsGtnE" \
+  "https://api.search.brave.com/res/v1/news/search?q={TICKER}+stock&count=3&search_lang=en&freshness=pd" \
+  --compressed \
+  | python3 -c "
+import json, sys
+d = json.load(sys.stdin)
+for r in d.get('results', [])[:3]:
+    print(r.get('title', ''))
+"
+```
+
+取得したニュース見出し（最大3件）の中から、値動きの理由として最も関連性の高い1件を選び、通知に含める。
+ニュースが見つからない場合は「要因: 不明（ニュースなし）」とする。
+
+**日本株アラート例:**
+```bash
+osascript -e 'display notification "SPDRゴールド +3.5%（71,640円）\n評価益: +2,676,556円\n📰 金先物が最高値更新" with title "📈 株価アラート" sound name "Glass"'
+```
+
+**米国株アラート例（円換算併記）:**
+```bash
+osascript -e 'display notification "NVDA +5.2%（$189.82 / ¥29,472）\n評価益: +$783 / +¥121,566\n📰 AI半導体需要が予想上回る" with title "📈 株価アラート" sound name "Glass"'
+```
+
+## Step 3.5: スポット買い通知
+
+watchlist.json の `spotBuy` セクションを確認する。
+各銘柄の現在値が `levels` のいずれかの `price` 以下になった場合、買い場通知を出す。
+
+下のレベルほど優先度が高い（複数ヒット時は最も低い価格のレベルで通知）。
+
+```bash
+osascript -e 'display notification "TSM $296（-20%）\n📢 買い場接近\n推奨: 16株（約74万円）" with title "🛒 スポット買いチャンス" sound name "Submarine"'
+```
+
+通知は**1銘柄につき同じレベルで1日1回まで**。同じレベルが連日続く場合は毎日通知する。
 
 ## Step 4: サマリー通知
 
-大引後（東証15:30頃 / 米国05:00頃JST）の初回チェックで日次サマリーを送る。
+大引後の初回チェックで日次サマリーを `display notification` で通知。
 
-stock-history.json の `lastSummary.jp` / `lastSummary.us` が本日でなければサマリーを通知。
-
-**日本株サマリー例:**
-
+**米国株サマリーには為替レートと円換算合計を含める:**
 ```bash
-osascript -e 'display notification "日経平均 39,150 (+0.3%)
-SPDRゴールド 71,640 (+0.8%) 損益+2,676,556
-純銀信託 36,300 (+1.2%) 損益+154,537" with title "📊 東証 終値" sound name "Purr"'
+osascript -e 'display notification "USD/JPY: 155.30\nNVDA $189.82(+1.2%) ¥29,472\nTSLA $411.82(-0.3%) ¥63,956\n米国株合計: ¥4,794,338" with title "📊 米国 終値" sound name "Purr"'
 ```
 
-**米国株サマリー例:**
-
-```bash
-osascript -e 'display notification "S&P500 6,120 (+0.5%)
-NVDA 189.82 (+1.2%) TSM 370.54 (+0.8%)
-TSLA 411.82 (-0.3%) MDB 344.56 (+2.1%)" with title "📊 米国 終値" sound name "Purr"'
-```
-
-**状態更新:**
-
-stock-history.json を更新:
-
+stock-history.json を更新。為替レートも記録する:
 ```json
 {
-  "lastChecked": "2026-02-17T15:30:00+09:00",
-  "lastSummary": { "jp": "2026-02-17", "us": "2026-02-17" },
+  "lastChecked": "2026-02-22T06:10:00+09:00",
+  "lastSummary": { "jp": "2026-02-22", "us": "2026-02-22" },
+  "usdjpy": 155.30,
   "prices": {
     "1326.T": { "price": 71640, "changePct": 0.8, "pnl": 2676556, "at": "..." },
-    "NVDA": { "price": 189.82, "changePct": 1.2, "pnl": 783.30, "at": "..." }
+    "NVDA": { "price": 189.82, "changePct": 1.2, "pnlUsd": 783.30, "pnlJpy": 121566, "at": "..." }
   }
 }
 ```
@@ -119,11 +157,9 @@ stock-history.json を更新:
 - サマリー通知 → `[Heartbeat] 終値サマリー送信（JP/US）`
 - 何もなし → `HEARTBEAT_OK`
 
----
-
 ## 禁止事項
 
-1. **watchlist.json にない銘柄を勝手に追加しない**
-2. **alertDown/alertUp の閾値を変更しない**
-3. **通知を英語で出さない** — 全て日本語
-4. **売買判断・推奨を出さない** — 事実（価格・変動率・損益）のみ通知
+1. watchlist.jsonにない銘柄を勝手に追加しない
+2. alertDown/alertUpの閾値を変更しない
+3. 通知を英語で出さない
+4. 売買判断・推奨を出さない — 事実のみ通知
