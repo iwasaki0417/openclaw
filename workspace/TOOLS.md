@@ -31,5 +31,17 @@ curl -s -H "Accept: application/json" \
 - Web検索: `/res/v1/web/search` — 一般的なWeb検索
 - クエリ例: `q=NVDA+stock+earnings`, `q=silver+price+drop+reason`
 
+## メール送信
+
+```bash
+python3 ~/.openclaw/workspace/scripts/send-email.py \
+  --subject "件名" \
+  --html-file /path/to/report.html
+```
+
+- 設定: `memory/email-config.json`（SMTP情報、送信先）
+- 対応形式: プレーンテキスト（`--body`）、HTML（`--html` / `--html-file`）
+- HTMLメールを先にファイルに保存してから `--html-file` で送信する
+
 ## macOS通知
 osascript -e 'display notification "本文" with title "タイトル" sound name "Glass"'

@@ -1,6 +1,6 @@
 # 決算・重要イベント ウォッチャー
 
-> 保有銘柄の決算発表日を週次でチェックし、直前にmacOS通知で知らせる。
+> 保有銘柄の決算発表日を週次でチェックし、メール + macOS通知で知らせる。
 
 ---
 
@@ -67,12 +67,26 @@ for r in d.get('web', {}).get('results', [])[:5]:
 - `daysUntil`: 今日から決算日までの日数
 - `noDateFound`: 日付を特定できなかった銘柄
 
-## Step 3: 通知
+## Step 3: メール送信（決算がある場合のみ）
+
+7日以内の決算がある場合、HTMLメールを生成して送信する。
+
+含める内容:
+- 決算予定銘柄の一覧（日付、時間帯、保有数、評価額）
+- 翌営業日の決算は 🔴 で強調
+
+```bash
+python3 ~/.openclaw/workspace/scripts/send-email.py \
+  --subject "📅 決算予定 $(date '+%m/%d') — {銘柄名}" \
+  --html-file /tmp/openclaw-earnings.html
+```
+
+## Step 4: macOS通知
 
 ### 7日以内の決算がある場合
 
 ```bash
-osascript -e 'display notification "NVDA 決算: 2/26（水）引け後\nPLTR 決算: 2/28（金）寄り前\n⚡ 決算前後は値動き注意" with title "📅 今週の決算予定" sound name "Purr"'
+osascript -e 'display notification "NVDA 決算: 2/26（水）引け後\nPLTR 決算: 2/28（金）寄り前\n📧 詳細メール送信済" with title "📅 今週の決算予定" sound name "Purr"'
 ```
 
 ### 翌営業日に決算がある場合（緊急通知）
@@ -85,11 +99,11 @@ osascript -e 'display notification "明日 NVDA 決算発表（引け後）\n保
 
 ### 決算がない場合
 
-通知は出さない。
+通知もメールも出さない。
 
-## Step 4: 結果返却
+## Step 5: 結果返却
 
-- 通知あり → `[Earnings] {N}件の決算予定を通知`
+- 通知あり → `[Earnings] {N}件の決算予定を通知+メール送信`
 - 通知なし → `HEARTBEAT_OK`
 
 ## 注意事項
@@ -97,3 +111,4 @@ osascript -e 'display notification "明日 NVDA 決算発表（引け後）\n保
 1. Brave Search APIは月1,000回の無料枠。1回の実行で最大10銘柄を検索するため、週1回（月4回 × 10銘柄 = 40リクエスト）程度に抑える
 2. 検索結果の日付が曖昧な場合は `timing: "unknown"` とする
 3. 売買判断・推奨は出さない — 事実のみ通知
+4. email-config.json 未設定時はmacOS通知のみ

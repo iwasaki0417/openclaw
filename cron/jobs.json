@@ -1,6 +1,13 @@
 {
-	"version": 2,
+	"version": 3,
 	"jobs": [
+		{
+			"id": "daily-news",
+			"name": "デイリーニュースダイジェスト",
+			"schedule": "30 7 * * 1-5",
+			"timezone": "Asia/Tokyo",
+			"payload": { "agent": "main", "message": "DAILY-NEWS.md を参照し、デイリーニュースダイジェストを作成してメール送信" }
+		},
 		{
 			"id": "stock-jp-open",
 			"name": "東証寄付後チェック",
@@ -37,18 +44,18 @@
 			"payload": { "agent": "main", "message": "HEARTBEAT実行: 米国大引後サマリー" }
 		},
 		{
+			"id": "weekly-review",
+			"name": "週次ポートフォリオ診断",
+			"schedule": "0 9 * * 6",
+			"timezone": "Asia/Tokyo",
+			"payload": { "agent": "main", "message": "WEEKLY-REVIEW.md を参照し、週次ポートフォリオ診断を実行してメール送信" }
+		},
+		{
 			"id": "earnings-watch",
 			"name": "決算ウォッチャー",
 			"schedule": "0 20 * * 0",
 			"timezone": "Asia/Tokyo",
 			"payload": { "agent": "main", "message": "EARNINGS.md を参照し、保有銘柄の決算予定をチェック" }
-		},
-		{
-			"id": "weekly-review",
-			"name": "週次ポートフォリオ診断",
-			"schedule": "0 9 * * 6",
-			"timezone": "Asia/Tokyo",
-			"payload": { "agent": "main", "message": "WEEKLY-REVIEW.md を参照し、週次ポートフォリオ診断を実行" }
 		}
 	]
 }

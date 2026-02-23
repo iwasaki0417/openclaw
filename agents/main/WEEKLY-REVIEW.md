@@ -1,6 +1,6 @@
 # 週次ポートフォリオ診断
 
-> 毎週土曜朝に、ポートフォリオの健全性と今週のアクションをmacOS通知で知らせる。
+> 毎週土曜朝に、ポートフォリオの健全性と今週のアクションをHTMLメール + macOS通知で知らせる。
 
 ---
 
@@ -78,28 +78,43 @@ for r in d.get('results', [])[:3]:
 貴金属（gold silver price）、半導体（semiconductor chip）、ウラン（uranium nuclear）についても各1回ずつ検索。
 各リクエスト間に `sleep 3`。
 
-## Step 4: 通知
+## Step 4: HTMLメール生成
 
-### メイン通知（ポートフォリオサマリー）
+DAILY-NEWS.md と同様のHTML形式でレポートを生成し `/tmp/openclaw-weekly-review.html` に保存する。
+
+含める内容:
+- 週間パフォーマンス表（全銘柄の週間騰落率、評価額、損益）
+- 資産配分の円グラフ相当データ（日本株/米国株/投信の比率）
+- 警告事項（集中リスク、含み損）
+- 来週のDCA予定
+- 市場トレンドニュース要約
 
 ```bash
-osascript -e 'display notification "📊 週間パフォーマンス\n日本株: +1.2%  米国株: -0.8%\n\n⚡ 集中リスク: NVDA (22%)\n📉 含み損注意: IONQ (-15.3%)\n\n📅 来週: 3/2 銀3口+金1口+SPY1株" with title "📋 週次レビュー" sound name "Purr"'
+# HTMLファイル保存
+cp /tmp/openclaw-weekly-review.html ~/.openclaw/workspace/memory/weekly-review-latest.html
 ```
 
-### 市場トレンド通知
+## Step 5: メール送信 + macOS通知
 
 ```bash
-osascript -e 'display notification "🌍 市場: 利下げ期待で株高基調\n🥇 貴金属: 金最高値更新、銀追随\n⚛️ ウラン: 原発再稼働議論が追い風\n🔬 半導体: NVDA決算に注目集まる" with title "📰 週間マーケット" sound name "Purr"'
+python3 ~/.openclaw/workspace/scripts/send-email.py \
+  --subject "📋 週次レビュー $(date '+%m/%d')" \
+  --html-file /tmp/openclaw-weekly-review.html
 ```
 
-ニュース見出しから要約を作成する。各テーマ1行（20文字以内）に収める。
+メール送信後、要約をmacOS通知:
 
-## Step 5: 結果返却
+```bash
+osascript -e 'display notification "📊 週間: 日本株+1.2%, 米国株-0.8%\n⚡ 警告{N}件\n📅 来週: 3/2 銀3口+金1口+SPY1株\n📧 詳細メール送信済" with title "📋 週次レビュー" sound name "Purr"'
+```
 
-`[Weekly Review] ポートフォリオ診断完了 — 警告{N}件`
+## Step 6: 結果返却
+
+`[Weekly Review] ポートフォリオ診断完了 — 警告{N}件 — メール送信済`
 
 ## 注意事項
 
 1. Brave Search APIの呼び出しは1回の実行で最大4リクエストに抑える
 2. 売買判断・推奨は出さない — 事実とリスク指摘のみ
-3. 通知は最大2つ（サマリー + 市場トレンド）に収める
+3. macOS通知は要約のみ、詳細はメールで確認
+4. email-config.json 未設定時はファイル保存 + macOS通知のみ
