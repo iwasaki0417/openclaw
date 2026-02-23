@@ -10,9 +10,6 @@ subagents/
 devices/
 identity/
 
-# Secrets
-workspace/memory/email-config.json
-
 # Node
 workspace/node_modules/
 workspace/package-lock.json
