@@ -1,7 +1,7 @@
 {
   "meta": {
     "lastTouchedVersion": "2026.2.9",
-    "lastTouchedAt": "2026-02-15T07:56:22.468Z"
+    "lastTouchedAt": "2026-02-23T02:46:03.135Z"
   },
   "wizard": {
     "lastRunAt": "2026-02-12T13:06:58.104Z",
@@ -20,16 +20,19 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "anthropic/claude-opus-4-6"
+        "primary": "anthropic/claude-haiku-3-5-20241022"
       },
       "models": {
-        "anthropic/claude-opus-4-6": {
-          "alias": "opus"
+        "anthropic/claude-haiku-3-5-20241022": {
+          "alias": "haiku"
         }
       },
       "workspace": "/Users/iwasakikyou/.openclaw/workspace",
       "compaction": {
         "mode": "safeguard"
+      },
+      "heartbeat": {
+        "every": "2h"
       },
       "maxConcurrent": 4,
       "subagents": {
@@ -50,7 +53,9 @@
     "slack": {
       "mode": "socket",
       "webhookPath": "/slack/events",
-      "enabled": false
+      "enabled": false,
+      "userTokenReadOnly": true,
+      "groupPolicy": "allowlist"
     }
   },
   "gateway": {
