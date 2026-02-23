@@ -1,11 +1,12 @@
 {
 	"version": 2,
-	"updatedAt": "2026-02-22",
-	"monthlyBudget": "約42.7万円（積立） + 約14.4万円（スポット買い用プール）",
+	"updatedAt": "2026-02-23",
+	"monthlyBudget": "約47.7万円（積立） + 約9.4万円（スポット買い用プール）",
 	"schedule": {
 		"monthly_2nd": {
 			"label": "メイン積立日",
 			"items": [
+				{ "fund": "eMAXIS Slim 全世界株式（オルカン）", "amount": 50000, "unit": "円", "note": "月5万円積立" },
 				{ "ticker": "1542.T", "name": "純銀信託", "qty": 3, "unit": "口", "note": "銀DCA 1回目" },
 				{ "ticker": "1326.T", "name": "SPDRゴールド", "qty": 1, "unit": "口" },
 				{ "ticker": "SPY", "name": "S&P500 ETF", "qty": 1, "unit": "株" }
@@ -25,22 +26,23 @@
 		}
 	},
 	"monthlySummary": {
-		"1542.T": { "name": "純銀信託", "qtyPerMonth": 5, "note": "2日に3口 + 15日に2口", "allocation": "46%" },
-		"SPY": { "name": "S&P500 ETF", "qtyPerMonth": 1, "allocation": "27%" },
-		"1326.T": { "name": "SPDRゴールド", "qtyPerMonth": 1, "allocation": "18%" },
-		"URA": { "name": "ウラニウムETF", "qtyPerMonth": 8, "note": "月曜+水曜 × 約4週", "allocation": "9%" }
+		"オルカン": { "name": "eMAXIS Slim 全世界株式", "amountPerMonth": 50000, "note": "月5万円定期積立", "allocation": "10%" },
+		"1542.T": { "name": "純銀信託", "qtyPerMonth": 5, "note": "2日に3口 + 15日に2口", "allocation": "42%" },
+		"SPY": { "name": "S&P500 ETF", "qtyPerMonth": 1, "allocation": "24%" },
+		"1326.T": { "name": "SPDRゴールド", "qtyPerMonth": 1, "allocation": "16%" },
+		"URA": { "name": "ウラニウムETF", "qtyPerMonth": 8, "note": "月曜+水曜 × 約4週", "allocation": "8%" }
 	},
 	"discontinued": [
-		{ "fund": "eMAXIS Slim 全世界株式（オルカン）", "reason": "SPYと重複。200万円はそのまま放置で育てる" },
 		{ "ticker": "TSM", "name": "台湾セミコン", "reason": "定期積立→スポット買いに切替。watchlist.jsonのspotBuyで通知設定済み" }
 	],
 	"spotBuyPool": {
-		"monthlyReserve": 143730,
-		"note": "オルカン・TSM廃止で浮いた分。スポット買い用の現金プールとして積み立て",
+		"monthlyReserve": 93730,
+		"note": "TSM廃止で浮いた分。スポット買い用の現金プールとして積み立て",
 		"targets": "TSM, VRT, ETN（watchlist.jsonのspotBuyで閾値・推奨量を管理）"
 	},
 	"recentChanges": [
-		"2026-02-22: オルカン月5万円の積立を廃止（放置運用に切替）",
+		"2026-02-23: オルカン月5万円の定期積立を再開（廃止を撤回）",
+		"2026-02-23: スポット買いプールを約14.4万→約9.4万に調整",
 		"2026-02-22: TSM月1株の積立を廃止（スポット買いに切替）",
 		"2026-02-22: 銀を月6口→5口に調整（2日3口+15日2口）",
 		"2026-02-22: 浮いた約14.4万円/月をスポット買い用プールに",
