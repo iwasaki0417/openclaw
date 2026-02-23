@@ -5,7 +5,7 @@
 OpenClawを使った個人向け株式監視・通知システム。
 東証・米国市場の定時チェック、ニュースダイジェスト、週次レビュー、決算ウォッチをCronで自動実行する。
 
-## 構成
+## ディレクトリ構成
 
 ```
 openclaw.json          # OpenClaw本体設定
@@ -29,42 +29,34 @@ workspace/
 
 ## 別Macへのセットアップ手順
 
-### 1. OpenClawのインストール
+### 1. リポジトリをclone
 
-公式の手順に従ってOpenClawをインストールする。
-
-### 2. このリポジトリをclone
+`~/openclaw` にcloneし、`~/.openclaw` をシンボリックリンクにする:
 
 ```bash
 git clone git@github.com:iwasaki0417/openclaw.git ~/openclaw
+ln -s ~/openclaw ~/.openclaw
 ```
 
-### 3. OpenClawのホームディレクトリにファイルを反映
+### 2. OpenClawのインストール
 
-OpenClawは `~/.openclaw/` を実行ディレクトリとして使う。
-cloneしたファイルを反映する:
+公式の手順に従ってOpenClawをインストールする。
+初回セットアップ（onboard）でAnthropicのAPIキーを設定する。
 
-```bash
-# ~/.openclaw/ が既に存在する場合、追跡対象ファイルだけをコピー
-cp openclaw.json ~/.openclaw/
-cp -r agents/ ~/.openclaw/agents/
-cp -r cron/jobs.json ~/.openclaw/cron/
-cp -r workspace/ ~/.openclaw/workspace/
-```
+### 3. openclaw.json のパス修正
 
-### 4. openclaw.json のパス修正
-
-`openclaw.json` 内の `workspace` パスを新しい環境に合わせて修正する:
+`openclaw.json` 内の `workspace` パスを新しい環境に合わせて修正:
 
 ```json
-"workspace": "/Users/<新ユーザー名>/.openclaw/workspace"
+"workspace": "/Users/<ユーザー名>/.openclaw/workspace"
 ```
 
-### 5. Anthropic APIキーの設定
+### 4. SSHキーの設定
 
-OpenClawのセットアップウィザード（`onboard`）でAnthropicのAPIキーを設定する。
+リモートがSSH接続のため、新しいMacにGitHub用SSHキーを設定しておくこと。
 
-## 注意事項
+## 運用メモ
 
+- `~/openclaw` が唯一の実体。`~/.openclaw` はそのシンボリックリンク。
 - このリポジトリはプライベート運用。SMTP認証情報・APIキーを含む。
-- `openclaw.json` の `gateway.auth.token` はローカル通信用。移行先で再生成してもよい。
+- ランタイム生成ファイル（logs, browser, cache等）は `.gitignore` で除外済み。
