@@ -1,61 +1,41 @@
 {
-	"version": 3,
-	"jobs": [
-		{
-			"id": "daily-news",
-			"name": "デイリーニュースダイジェスト",
-			"schedule": "30 7 * * 1-5",
-			"timezone": "Asia/Tokyo",
-			"payload": { "agent": "main", "message": "DAILY-NEWS.md を参照し、デイリーニュースダイジェストを作成してメール送信" }
-		},
-		{
-			"id": "stock-jp-open",
-			"name": "東証寄付後チェック",
-			"schedule": "5 9 * * 1-5",
-			"timezone": "Asia/Tokyo",
-			"payload": { "agent": "main", "message": "HEARTBEAT実行: 東証寄付直後" }
-		},
-		{
-			"id": "stock-jp-midday",
-			"name": "東証後場チェック",
-			"schedule": "35 12 * * 1-5",
-			"timezone": "Asia/Tokyo",
-			"payload": { "agent": "main", "message": "HEARTBEAT実行: 後場開始" }
-		},
-		{
-			"id": "stock-jp-close",
-			"name": "東証終値サマリー",
-			"schedule": "35 15 * * 1-5",
-			"timezone": "Asia/Tokyo",
-			"payload": { "agent": "main", "message": "HEARTBEAT実行: 東証大引後サマリー" }
-		},
-		{
-			"id": "stock-us-open",
-			"name": "米国寄付後チェック",
-			"schedule": "35 23 * * 1-5",
-			"timezone": "Asia/Tokyo",
-			"payload": { "agent": "main", "message": "HEARTBEAT実行: 米国市場寄付直後" }
-		},
-		{
-			"id": "stock-us-close",
-			"name": "米国終値サマリー",
-			"schedule": "10 6 * * 2-6",
-			"timezone": "Asia/Tokyo",
-			"payload": { "agent": "main", "message": "HEARTBEAT実行: 米国大引後サマリー" }
-		},
-		{
-			"id": "weekly-review",
-			"name": "週次ポートフォリオ診断",
-			"schedule": "0 9 * * 6",
-			"timezone": "Asia/Tokyo",
-			"payload": { "agent": "main", "message": "WEEKLY-REVIEW.md を参照し、週次ポートフォリオ診断を実行してメール送信" }
-		},
-		{
-			"id": "earnings-watch",
-			"name": "決算ウォッチャー",
-			"schedule": "0 20 * * 0",
-			"timezone": "Asia/Tokyo",
-			"payload": { "agent": "main", "message": "EARNINGS.md を参照し、保有銘柄の決算予定をチェック" }
-		}
-	]
+  "version": 1,
+  "jobs": [
+    {
+      "id": "daily-news",
+      "name": "OpenClaw News",
+      "description": "ニュース・決算・ポートフォリオ診断の統合レポート配信",
+      "schedule": "30 7 * * 1-5",
+      "timezone": "Asia/Tokyo",
+      "payload": {
+        "agent": "main",
+        "message": "DAILY-NEWS.md を参照し、OpenClaw News を作成してメール送信",
+        "kind": "agentTurn",
+        "model": "anthropic/claude-opus-4-6"
+      },
+      "state": {},
+      "enabled": true,
+      "delivery": {
+        "mode": "announce"
+      },
+      "sessionTarget": "isolated"
+    },
+    {
+      "id": "stock-jp-midday",
+      "name": "東証後場チェック",
+      "description": "東証後場開始の株価チェック",
+      "schedule": "35 12 * * 1-5",
+      "timezone": "Asia/Tokyo",
+      "payload": {
+        "agent": "main",
+        "message": "HEARTBEAT実行: 後場開始",
+        "kind": "agentTurn"
+      },
+      "state": {},
+      "enabled": true,
+      "delivery": {
+        "mode": "announce"
+      }
+    }
+  ]
 }

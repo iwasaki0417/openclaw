@@ -34,14 +34,34 @@ curl -s -H "Accept: application/json" \
 ## メール送信
 
 ```bash
+# テキストのみ
 python3 ~/.openclaw/workspace/scripts/send-email.py \
   --subject "件名" \
   --html-file /path/to/report.html
+
+# 画像埋め込み（CIDインライン）
+python3 ~/.openclaw/workspace/scripts/send-email.py \
+  --subject "件名" \
+  --html-file /path/to/report.html \
+  --image cid名:/path/to/image.png \
+  --image cid名2:/path/to/image2.png
 ```
 
 - 設定: `memory/email-config.json`（SMTP情報、送信先）
 - 対応形式: プレーンテキスト（`--body`）、HTML（`--html` / `--html-file`）
+- 画像埋め込み: `--image name:path` でCIDインライン画像。HTMLで `<img src="cid:name">` で参照
 - HTMLメールを先にファイルに保存してから `--html-file` で送信する
+
+## チャート画像生成
+
+QuickChart（月10万枚無料）:
+```bash
+curl -s -o /tmp/chart.png "https://quickchart.io/chart?w=560&h=320&bkg=white&f=png&c={Chart.js設定JSON}"
+```
+
+- Chart.js設定をURLエンコードして渡す
+- 対応形式: PNG, WebP, SVG, PDF
+- OpenClaw Newsのパフォーマンスバーチャートに使用
 
 ## macOS通知
 osascript -e 'display notification "本文" with title "タイトル" sound name "Glass"'
