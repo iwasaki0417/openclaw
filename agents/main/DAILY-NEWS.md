@@ -179,55 +179,68 @@ curl -s -o /tmp/openclaw-performance-bar.png "$(cat /tmp/chart-url.txt)"
 
 以下のテンプレートに厳密に従ってHTMLを生成する。**構造やスタイルを変更してはいけない。**
 
+⚠️ **Gmailダークモード対策ルール:**
+- 暗い背景（#1a1a2e等）は使わない — Gmailダークモードが色を反転させて読めなくなる
+- `opacity` は使わない — ダークモードで無視される
+- `border` でセクション区切りをしない — ダークモードで浮いて見える
+- セクション区切りは背景色の違い（白 vs 薄いグレー/ブルー）と余白で表現する
+- 全テキストは暗い色（#333, #444, #555, #888）で指定する
+- `<meta name="color-scheme" content="light only">` を必ず含める
+
 ```html
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8"></head>
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
+</head>
 <body style="font-family:-apple-system,'Helvetica Neue',Helvetica,sans-serif;max-width:640px;margin:0 auto;padding:0;color:#333;background:#f0f0f5">
-<div style="background:white;border-radius:10px;overflow:hidden">
+<div style="background:#ffffff;border-radius:10px;overflow:hidden">
 
 <!-- ===== HEADER ===== -->
-<div style="background:#1a1a2e;color:white;padding:20px 24px">
+<div style="background:#ffffff;padding:20px 24px">
 	<table style="width:100%;border-collapse:collapse">
 		<tr>
 			<td style="width:40px;vertical-align:middle">
 				<img src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/openclaw.png" alt="OpenClaw" style="width:36px;height:36px;border-radius:8px">
 			</td>
 			<td style="padding-left:12px;vertical-align:middle">
-				<h1 style="margin:0;font-size:20px;font-weight:700;letter-spacing:0.5px">OpenClaw News</h1>
-				<p style="margin:2px 0 0;font-size:13px;opacity:0.7">{YYYY}年{MM}月{DD}日（{曜日}）</p>
+				<h1 style="margin:0;font-size:20px;font-weight:700;letter-spacing:0.5px;color:#1a1a2e">OpenClaw News</h1>
+				<p style="margin:2px 0 0;font-size:13px;color:#888">{YYYY}年{MM}月{DD}日（{曜日}）</p>
 			</td>
 		</tr>
 	</table>
 </div>
 
 <!-- ===== PORTFOLIO IMPACT SUMMARY ===== -->
-<div style="background:linear-gradient(135deg,#1a1a2e,#16213e);color:white;padding:20px 24px">
-	<div style="font-size:14px;font-weight:700;margin-bottom:14px;opacity:0.9">📌 あなたのポートフォリオへの影響サマリー</div>
-	<div style="font-size:13px;line-height:1.8;opacity:0.95">
+<div style="background:#f0f2f8;padding:20px 24px">
+	<div style="font-size:14px;font-weight:700;margin-bottom:14px;color:#1a1a2e">📌 あなたのポートフォリオへの影響サマリー</div>
+	<div style="font-size:13px;line-height:1.8;color:#333">
 		{ポートフォリオ影響サマリー: 3-4行。太字で重要ポイントを強調。}
 	</div>
 </div>
 
 <!-- ===== KEY DRIVERS ===== -->
-<div style="background:#16213e;color:white;padding:16px 24px">
-	<div style="font-size:12px;font-weight:600;margin-bottom:10px;opacity:0.7;letter-spacing:0.5px">KEY DRIVERS</div>
+<div style="background:#ffffff;padding:16px 24px">
+	<div style="font-size:12px;font-weight:600;margin-bottom:10px;color:#888;letter-spacing:0.5px">KEY DRIVERS</div>
 	<table style="width:100%;border-collapse:collapse;font-size:13px">
 		<!-- 各行: ドライバー名 | 方向（色付き） | 短い説明 -->
 		<!-- 色: 上昇/強い=#2ecc71  下落/逆風=#e74c3c  警戒=#e67e22 -->
+		<!-- 偶数行に background:#f9f9f9 でゼブラストライプ -->
 		<tr>
-			<td style="padding:4px 0;opacity:0.9">{ドライバー名}</td>
-			<td style="padding:4px 0;text-align:right"><span style="color:{色}">▲ {状態}</span></td>
-			<td style="padding:4px 0;padding-left:12px;font-size:11px;opacity:0.6">{短い説明}</td>
+			<td style="padding:6px 0;color:#333;font-weight:600">{ドライバー名}</td>
+			<td style="padding:6px 0;text-align:right"><span style="color:{色};font-weight:700">▲ {状態}</span></td>
+			<td style="padding:6px 0;padding-left:12px;font-size:11px;color:#888">{短い説明}</td>
 		</tr>
 		<!-- 6行繰り返し -->
 	</table>
 </div>
 
 <!-- ===== ACTION ITEMS ===== -->
-<div style="background:#1a1a2e;color:white;padding:16px 24px">
-	<div style="font-size:12px;font-weight:600;margin-bottom:8px;opacity:0.7;letter-spacing:0.5px">💡 今週のアクション</div>
-	<div style="font-size:13px;line-height:1.8;opacity:0.95">
+<div style="background:#f8f6ff;padding:16px 24px">
+	<div style="font-size:12px;font-weight:600;margin-bottom:8px;color:#7c3aed;letter-spacing:0.5px">💡 今週のアクション</div>
+	<div style="font-size:13px;line-height:1.8;color:#333">
 		<b>定期積立:</b> {DCAスケジュール}<br>
 		<b>スポット買い:</b> {候補と条件}<br>
 		<b>{その他注意事項}</b>
