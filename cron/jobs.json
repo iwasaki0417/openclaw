@@ -1,47 +1,53 @@
 {
-	"version": 1,
-	"jobs": [
-		{
-			"id": "daily-news",
-			"name": "OpenClaw News",
-			"description": "ニュース・決算・ポートフォリオ診断の統合レポート配信",
-			"schedule": {
-				"kind": "cron",
-				"expr": "0 7 * * 1-5"
-			},
-			"timezone": "Asia/Tokyo",
-			"payload": {
-				"kind": "agentTurn",
-				"agent": "main",
-				"message": "DAILY-NEWS.md を参照し、全ステップを厳密に実行してOpenClaw Newsを作成しメール送信せよ。HTMLテンプレートを絶対に変更するな。",
-				"model": "anthropic/claude-opus-4-6"
-			},
-			"enabled": true,
-			"delivery": {
-				"mode": "announce",
-				"channel": "last"
-			},
-			"sessionTarget": "isolated"
-		},
-		{
-			"id": "stock-jp-midday",
-			"name": "東証後場チェック",
-			"description": "東証後場開始の株価チェック",
-			"schedule": {
-				"kind": "cron",
-				"expr": "35 12 * * 1-5"
-			},
-			"timezone": "Asia/Tokyo",
-			"payload": {
-				"kind": "agentTurn",
-				"agent": "main",
-				"message": "HEARTBEAT実行: 後場開始"
-			},
-			"enabled": true,
-			"delivery": {
-				"mode": "announce",
-				"channel": "last"
-			}
-		}
-	]
+  "version": 1,
+  "jobs": [
+    {
+      "id": "daily-news",
+      "name": "OpenClaw News",
+      "description": "ニュース・決算・ポートフォリオ診断の統合レポート配信",
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 7 * * 1-5"
+      },
+      "timezone": "Asia/Tokyo",
+      "payload": {
+        "kind": "agentTurn",
+        "agent": "main",
+        "message": "DAILY-NEWS.md を参照し、全ステップを厳密に実行してOpenClaw Newsを作成しメール送信せよ。HTMLテンプレートを絶対に変更するな。",
+        "model": "anthropic/claude-opus-4-6"
+      },
+      "enabled": true,
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "sessionTarget": "isolated",
+      "state": {
+        "nextRunAtMs": 1771970400000
+      }
+    },
+    {
+      "id": "stock-jp-midday",
+      "name": "東証後場チェック",
+      "description": "東証後場開始の株価チェック",
+      "schedule": {
+        "kind": "cron",
+        "expr": "35 12 * * 1-5"
+      },
+      "timezone": "Asia/Tokyo",
+      "payload": {
+        "kind": "agentTurn",
+        "agent": "main",
+        "message": "HEARTBEAT実行: 後場開始"
+      },
+      "enabled": true,
+      "delivery": {
+        "mode": "announce",
+        "channel": "last"
+      },
+      "state": {
+        "nextRunAtMs": 1771904100000
+      }
+    }
+  ]
 }
