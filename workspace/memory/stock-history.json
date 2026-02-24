@@ -1,5 +1,5 @@
 {
-	"lastChecked": "2026-02-24T09:13:00+09:00",
+	"lastChecked": "2026-02-24T14:00:00+09:00",
 	"lastSummary": { "jp": "2026-02-24", "us": "2026-02-24" },
 	"usdjpy": 155.0,
 	"sbiSnapshot": {
@@ -12,35 +12,35 @@
 	"prices": {
 		"1326.T": {
 			"name": "SPDRゴールド",
-			"price": 74330,
+			"price": 73720,
 			"prevClose": 71640,
-			"changePct": 3.75,
+			"changePct": 2.9,
 			"shares": 94,
 			"cost": 43166,
 			"costTotal": 4057604,
-			"value": 6987020,
-			"pnl": 2929416,
-			"pnlPct": 72.20
+			"value": 6929680,
+			"pnl": 2872076,
+			"pnlPct": 70.72
 		},
 		"1542.T": {
 			"name": "純銀信託",
-			"price": 36300,
+			"price": 39760,
 			"prevClose": 36300,
-			"changePct": 0.00,
+			"changePct": 9.53,
 			"shares": 23,
 			"cost": 29581,
 			"costTotal": 680363,
-			"value": 834900,
-			"pnl": 154537,
-			"pnlPct": 22.71
+			"value": 914480,
+			"pnl": 234117,
+			"pnlPct": 34.42
 		},
-		"^N225": { "name": "日経平均" },
-		"^GSPC": { "name": "S&P500" },
+		"^N225": { "name": "日経平均", "price": 57396.91, "changePct": 1.01 },
+		"^GSPC": { "name": "S&P500", "price": 6837.75, "changePct": -1.04 },
 		"ETN": {
 			"name": "イートン",
 			"price": 362.05,
 			"prevClose": 373.38,
-			"changePct": -3.04,
+			"changePct": -3.03,
 			"shares": 1,
 			"cost": 352.24,
 			"pnlUsd": 9.81,
@@ -51,7 +51,7 @@
 		"IONQ": {
 			"name": "IonQ",
 			"price": 30.78,
-			"prevClose": 31.90,
+			"prevClose": 31.9,
 			"changePct": -3.51,
 			"shares": 2,
 			"cost": 62.58,
@@ -86,7 +86,7 @@
 		},
 		"PLTR": {
 			"name": "パランティア",
-			"price": 130.60,
+			"price": 130.6,
 			"prevClose": 135.24,
 			"changePct": -3.43,
 			"shares": 17,
@@ -183,9 +183,9 @@
 	},
 	"summary": {
 		"jp": {
-			"value": 7821920,
-			"pnl": 3083953,
-			"pnlPct": 65.12
+			"value": 7844160,
+			"pnl": 3104537,
+			"pnlPct": 65.62
 		},
 		"us": {
 			"valueUsd": 30463.58,

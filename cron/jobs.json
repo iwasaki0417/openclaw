@@ -27,27 +27,34 @@
       }
     },
     {
-      "id": "stock-jp-midday",
+      "id": "1aa89b97-9d2d-4d85-afdb-2c724fe7af81",
       "name": "東証後場チェック",
-      "description": "東証後場開始の株価チェック",
+      "enabled": true,
+      "createdAtMs": 1771906999487,
+      "updatedAtMs": 1771909283005,
       "schedule": {
         "kind": "cron",
-        "expr": "35 12 * * 1-5"
+        "expr": "0 14 * * 1-5"
       },
-      "timezone": "Asia/Tokyo",
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "agent": "main",
-        "message": "HEARTBEAT.md を参照し、全ステップを厳密に実行せよ。東証後場開始の株価チェック。",
-        "model": "anthropic/claude-haiku-4-5"
+        "message": "東証の株価・指数をチェックし、重要な値動きを報告してください"
       },
-      "enabled": true,
       "delivery": {
         "mode": "announce",
         "channel": "last"
       },
       "state": {
-        "nextRunAtMs": 1771904100000
+        "nextRunAtMs": 1771995600000,
+        "lastRunAtMs": 1771909200014,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 82991,
+        "lastError": "Channel is required (no configured channels detected). Set delivery.channel explicitly or use a main session with a previous channel.",
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1
       }
     }
   ]
