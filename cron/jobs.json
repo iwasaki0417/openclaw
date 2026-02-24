@@ -38,7 +38,8 @@
       "payload": {
         "kind": "agentTurn",
         "agent": "main",
-        "message": "HEARTBEAT実行: 後場開始"
+        "message": "HEARTBEAT.md を参照し、全ステップを厳密に実行せよ。東証後場開始の株価チェック。",
+        "model": "anthropic/claude-haiku-4-5"
       },
       "enabled": true,
       "delivery": {
