@@ -1,0 +1,44 @@
+{
+  "strategies": [
+    {
+      "name": "limitOrder",
+      "description": "前週終値から -2%, -5% で指値通知",
+      "enabled": true,
+      "tickers": ["TSM", "VRT", "ETN", "SPY", "URA"],
+      "offsets": [
+        {
+          "percent": -2,
+          "label": "L2: -2% (買い推奨)"
+        },
+        {
+          "percent": -5,
+          "label": "L5: -5% (強気買い)"
+        }
+      ]
+    },
+    {
+      "name": "weekdayBias",
+      "description": "火曜・木曜に購入リマインド",
+      "enabled": true,
+      "tickers": ["URA", "SPY"],
+      "days": [2, 4],
+      "reminderTime": "09:00"
+    },
+    {
+      "name": "ema20",
+      "description": "20日EMA上下で購入量調整 (バリュー平均法)",
+      "enabled": true,
+      "tickers": ["TSM", "SPY", "VRT", "ETN"],
+      "range": "1mo",
+      "multipliers": {
+        "above": 0.7,
+        "below": 1.5
+      }
+    }
+  ],
+  "logging": {
+    "enabled": true,
+    "field": "smartDca",
+    "target": "stock-history.json"
+  }
+}

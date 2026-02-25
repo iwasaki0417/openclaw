@@ -1,0 +1,44 @@
+{
+	"version": 1,
+	"updatedAt": "2026-02-25",
+	"description": "スマートDCA戦略設定 — 指値通知・曜日戦略・20EMA判定",
+	"strategies": {
+		"limitOrder": {
+			"enabled": true,
+			"description": "前週終値からの乖離率で指値水準を通知",
+			"levels": [-2, -5],
+			"tickers": ["TSM", "VRT", "ETN", "SPY", "URA"],
+			"weeklyCloseCache": {},
+			"note": "月曜朝のHeartbeatで前週金曜の終値をキャッシュ。平日は現在値との乖離率を判定"
+		},
+		"weekdayBias": {
+			"enabled": true,
+			"description": "統計的安値曜日に購入リマインド",
+			"preferredDays": [2, 4],
+			"dayNames": { "2": "火曜", "4": "木曜" },
+			"tickers": ["URA", "SPY"],
+			"note": "火曜・木曜は市場調整が入りやすい統計傾向。DCA対象銘柄の購入推奨日"
+		},
+		"ema20": {
+			"enabled": true,
+			"description": "20日EMAとの位置関係で購入量を調整（バリュー平均法）",
+			"tickers": ["TSM", "VRT", "ETN", "SPY", "URA"],
+			"multiplier": {
+				"belowEma": 1.5,
+				"aboveEma": 0.7
+			},
+			"note": "EMA下=1.5倍増額、EMA上=0.7倍減額。spotBuyやDCAの推奨数量に乗算"
+		}
+	},
+	"notification": {
+		"line": true,
+		"macOS": true,
+		"email": false,
+		"note": "LINE=リアルタイム通知、macOS=PC作業中の補助、email=日次レポートのみ"
+	},
+	"throttle": {
+		"limitOrderSameLevel": "1日1回/銘柄/レベル",
+		"weekdayReminder": "対象曜日の市場開始前1回",
+		"ema20Alert": "EMA上下クロス時1回 + 日次サマリーに含める"
+	}
+}

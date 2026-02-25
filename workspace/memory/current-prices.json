@@ -1,0 +1,142 @@
+{
+  "timestamp": "2026-02-25T19:47:51.673232",
+  "usdjpy": 156.724,
+  "prices": {
+    "1326.T": {
+      "name": "SPDRゴールド",
+      "price": 74220.0,
+      "prevClose": 74220.0,
+      "change": 0.0,
+      "changePct": 0.0,
+      "shares": 94
+    },
+    "1542.T": {
+      "name": "純銀信託",
+      "price": 41440.0,
+      "prevClose": 41440.0,
+      "change": 0.0,
+      "changePct": 0.0,
+      "shares": 23
+    },
+    "ETN": {
+      "name": "イートン",
+      "price": 374.56,
+      "prevClose": 374.55999755859375,
+      "change": 0.0,
+      "changePct": 0.0,
+      "shares": 1,
+      "currency": "USD",
+      "priceJpy": 58703.0
+    },
+    "IONQ": {
+      "name": "IonQ",
+      "price": 31.62,
+      "prevClose": 31.6200008392334,
+      "change": -0.0,
+      "changePct": -0.0,
+      "shares": 2,
+      "currency": "USD",
+      "priceJpy": 4956.0
+    },
+    "MDB": {
+      "name": "MongoDB",
+      "price": 312.51,
+      "prevClose": 312.510009765625,
+      "change": -0.0,
+      "changePct": -0.0,
+      "shares": 5,
+      "currency": "USD",
+      "priceJpy": 48978.0
+    },
+    "NVDA": {
+      "name": "エヌビディア",
+      "price": 192.85,
+      "prevClose": 192.85000610351562,
+      "change": -0.0,
+      "changePct": -0.0,
+      "shares": 35,
+      "currency": "USD",
+      "priceJpy": 30224.0
+    },
+    "PLTR": {
+      "name": "パランティア",
+      "price": 128.84,
+      "prevClose": 128.83999633789062,
+      "change": 0.0,
+      "changePct": 0.0,
+      "shares": 17,
+      "currency": "USD",
+      "priceJpy": 20192.0
+    },
+    "QBTS": {
+      "name": "D-Wave Quantum",
+      "price": 18.66,
+      "prevClose": 18.65999984741211,
+      "change": 0.0,
+      "changePct": 0.0,
+      "shares": 3,
+      "currency": "USD",
+      "priceJpy": 2924.0
+    },
+    "RGTI": {
+      "name": "リゲッティ",
+      "price": 16.48,
+      "prevClose": 16.479999542236328,
+      "change": 0.0,
+      "changePct": 0.0,
+      "shares": 2,
+      "currency": "USD",
+      "priceJpy": 2583.0
+    },
+    "SPY": {
+      "name": "S&P500 ETF",
+      "price": 687.35,
+      "prevClose": 687.3499755859375,
+      "change": 0.0,
+      "changePct": 0.0,
+      "shares": 14,
+      "currency": "USD",
+      "priceJpy": 107724.0
+    },
+    "TSLA": {
+      "name": "テスラ",
+      "price": 409.38,
+      "prevClose": 409.3800048828125,
+      "change": -0.0,
+      "changePct": -0.0,
+      "shares": 10,
+      "currency": "USD",
+      "priceJpy": 64160.0
+    },
+    "TSM": {
+      "name": "台湾セミコン",
+      "price": 385.75,
+      "prevClose": 385.75,
+      "change": 0.0,
+      "changePct": 0.0,
+      "shares": 11,
+      "currency": "USD",
+      "priceJpy": 60456.0
+    },
+    "URA": {
+      "name": "ウラニウムETF",
+      "price": 54.95,
+      "prevClose": 54.95000076293945,
+      "change": -0.0,
+      "changePct": -0.0,
+      "shares": 26,
+      "currency": "USD",
+      "priceJpy": 8612.0
+    },
+    "VRT": {
+      "name": "バーティブ",
+      "price": 253.15,
+      "prevClose": 253.14999389648438,
+      "change": 0.0,
+      "changePct": 0.0,
+      "shares": 2,
+      "currency": "USD",
+      "priceJpy": 39675.0
+    }
+  }
+}

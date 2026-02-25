@@ -1,6 +1,7 @@
-# Heartbeat: 株価モニタリング
+# Heartbeat: 株価モニタリング + スマートDCA
 
-> パーソナルClaw。保有銘柄（日本株・米国株）を定期チェックし、macOS通知で知らせる。
+> パーソナルClaw。保有銘柄（日本株・米国株）を定期チェックし、LINE / macOS通知で知らせる。
+> スマートDCA戦略（指値・曜日・20EMA）の判定も行う。
 
 ---
 
@@ -9,9 +10,11 @@
 ```bash
 cat ~/.openclaw/workspace/memory/watchlist.json
 cat ~/.openclaw/workspace/memory/stock-history.json
+cat ~/.openclaw/workspace/memory/smart-dca-config.json
 ```
 
 watchlist.json の `stocks_jp`, `stocks_us`, `indices` を読み取る。
+smart-dca-config.json の戦略設定（`limitOrder`, `weekdayBias`, `ema20`）を読み取る。
 
 ## Step 1: 市場時間チェック
 
@@ -79,6 +82,119 @@ print(meta['regularMarketPrice'])
 - 評価損益(USD) = (現在値 - 取得単価) × 保有数量
 - 円換算評価額 = 現在値 × 保有数量 × USD/JPYレート
 - 円換算評価損益 = 評価損益(USD) × USD/JPYレート
+
+## Step 2.5: スマートDCA判定
+
+smart-dca-config.json の `strategies` を参照し、有効な戦略を順に判定する。
+
+### A. 前週終値からの指値判定（limitOrder）
+
+**月曜の初回Heartbeat時:** 各対象銘柄の前週金曜終値を取得し `weeklyCloseCache` に保存する。
+
+```bash
+curl -s -A "$UA" "https://query1.finance.yahoo.com/v8/finance/chart/{TICKER}?interval=1d&range=5d" \
+  | python3 -c "
+import json, sys
+d = json.load(sys.stdin)
+closes = d['chart']['result'][0]['indicators']['quote'][0]['close']
+valid = [c for c in closes if c is not None]
+print(json.dumps({'prevWeekClose': valid[-1] if valid else None}))
+"
+```
+
+取得後、smart-dca-config.json の `weeklyCloseCache` を更新:
+```json
+{ "weeklyCloseCache": { "TSM": 235.50, "VRT": 225.10, "ETN": 345.00, "SPY": 602.30, "URA": 55.80 } }
+```
+
+**平日の各Heartbeat時:** 現在値と `weeklyCloseCache` を比較し、乖離率を算出。
+
+```
+乖離率 = (現在値 - 前週終値) / 前週終値 × 100
+```
+
+`levels`（-2%, -5%）のいずれかに到達した場合、通知:
+
+```bash
+osascript -e 'display notification "TSM $230.79（前週比 -2.0%）\n→ 指値水準到達。購入検討タイミング" with title "🎯 指値水準" sound name "Glass"'
+```
+
+同じ銘柄・同じレベルの通知は**1日1回まで**。
+
+### B. 曜日戦略リマインド（weekdayBias）
+
+```bash
+date "+%u"
+```
+
+`preferredDays`（2=火曜, 4=木曜）に該当する場合、市場開始前の最初のHeartbeatで通知:
+
+```bash
+osascript -e 'display notification "📅 統計的安値日（火曜）\nURA / SPY の購入推奨タイミング\n※ 20EMA判定も確認" with title "📅 曜日戦略" sound name "Purr"'
+```
+
+### C. 20日EMA判定（ema20）
+
+対象銘柄の20日分の価格データを取得し、20日EMAを算出する。
+
+```bash
+curl -s -A "$UA" "https://query1.finance.yahoo.com/v8/finance/chart/{TICKER}?interval=1d&range=1mo" \
+  | python3 -c "
+import json, sys
+d = json.load(sys.stdin)
+closes = d['chart']['result'][0]['indicators']['quote'][0]['close']
+valid = [c for c in closes if c is not None]
+if len(valid) < 20:
+    print(json.dumps({'ema20': None, 'error': 'insufficient data'}))
+    sys.exit()
+k = 2 / (20 + 1)
+ema = valid[0]
+for price in valid[1:]:
+    ema = price * k + ema * (1 - k)
+current = valid[-1]
+position = 'below' if current < ema else 'above'
+gap_pct = round((current - ema) / ema * 100, 2)
+print(json.dumps({'ticker': d['chart']['result'][0]['meta']['symbol'], 'ema20': round(ema, 2), 'price': current, 'position': position, 'gapPct': gap_pct}))
+"
+```
+
+**判定ロジック:**
+- 現在値 < 20EMA → `belowEma`（増額推奨: ×1.5）
+- 現在値 ≥ 20EMA → `aboveEma`（減額推奨: ×0.7）
+
+**通知（日次サマリーに含める + EMAクロス時に即時通知）:**
+
+EMAを下抜けした瞬間（前回above → 今回below）:
+```bash
+osascript -e 'display notification "TSM $228.50 → 20EMA($235.20)割れ\n📉 増額購入推奨（×1.5）\nスポット買い: 注目ライン$333以下なら検討" with title "📊 20EMA下抜け" sound name "Submarine"'
+```
+
+EMAを上抜けした瞬間（前回below → 今回above）:
+```bash
+osascript -e 'display notification "TSM $237.00 → 20EMA($235.20)回復\n📈 通常量に戻す（×0.7）" with title "📊 20EMA上抜け" sound name "Glass"'
+```
+
+### D. スマートDCA結果の記録
+
+判定結果を stock-history.json の `smartDca` フィールドに記録:
+
+```json
+{
+  "smartDca": {
+    "lastChecked": "2026-02-25T10:00:00+09:00",
+    "ema20": {
+      "TSM": { "ema": 235.20, "price": 228.50, "position": "below", "gapPct": -2.85 },
+      "SPY": { "ema": 595.00, "price": 598.20, "position": "above", "gapPct": 0.54 }
+    },
+    "limitOrder": {
+      "TSM": { "prevWeekClose": 235.50, "currentGapPct": -2.97, "triggered": [-2] }
+    },
+    "weekdayAlert": "火曜"
+  }
+}
+```
+
+---
 
 ## Step 3: アラート判定 + 理由検索
 
@@ -155,6 +271,7 @@ stock-history.json を更新。為替レートも記録する:
 
 - アラートあり → `[Heartbeat] 株価アラート: {銘柄名} {changePct}%`
 - サマリー通知 → `[Heartbeat] 終値サマリー送信（JP/US）`
+- スマートDCA通知あり → `[Heartbeat] スマートDCA: {戦略名} {銘柄名} {詳細}`
 - 何もなし → `HEARTBEAT_OK`
 
 ## 禁止事項
@@ -162,4 +279,6 @@ stock-history.json を更新。為替レートも記録する:
 1. watchlist.jsonにない銘柄を勝手に追加しない
 2. alertDown/alertUpの閾値を変更しない
 3. 通知を英語で出さない
-4. 売買判断・推奨を出さない — 事実のみ通知
+4. 売買判断・推奨を出さない — 事実とシグナルのみ通知
+5. smart-dca-config.jsonの戦略設定を勝手に変更しない
+6. EMA計算に十分なデータ（20日分）がない場合は判定をスキップする

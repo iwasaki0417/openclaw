@@ -1,7 +1,12 @@
 {
 	"version": 2,
-	"updatedAt": "2026-02-23",
+	"updatedAt": "2026-02-26",
 	"monthlyBudget": "約47.7万円（積立） + 約9.4万円（スポット買い用プール）",
+	"cashReserve": {
+		"amount": 4000000,
+		"date": "2026-02-26",
+		"note": "一括入金400万円。積立の原資＋スポット買い待機資金として運用"
+	},
 	"schedule": {
 		"monthly_2nd": {
 			"label": "メイン積立日",
@@ -18,10 +23,10 @@
 				{ "ticker": "1542.T", "name": "純銀信託", "qty": 2, "unit": "口", "note": "銀DCA 2回目（ボラティリティ分散）" }
 			]
 		},
-		"weekly_mon_wed": {
+		"weekly_tue_thu": {
 			"label": "ウラン高頻度分散",
 			"items": [
-				{ "ticker": "URA", "name": "グローバルX ウラニウムETF", "qty": 1, "unit": "口", "note": "時間分散を重視" }
+				{ "ticker": "URA", "name": "グローバルX ウラニウムETF", "qty": 1, "unit": "口", "note": "毎週火曜・木曜、時間分散を重視" }
 			]
 		}
 	},
@@ -30,7 +35,7 @@
 		"1542.T": { "name": "純銀信託", "qtyPerMonth": 5, "note": "2日に3口 + 15日に2口", "allocation": "42%" },
 		"SPY": { "name": "S&P500 ETF", "qtyPerMonth": 1, "allocation": "24%" },
 		"1326.T": { "name": "SPDRゴールド", "qtyPerMonth": 1, "allocation": "16%" },
-		"URA": { "name": "ウラニウムETF", "qtyPerMonth": 8, "note": "月曜+水曜 × 約4週", "allocation": "8%" }
+		"URA": { "name": "ウラニウムETF", "qtyPerMonth": 8, "note": "火曜+木曜 × 約4週", "allocation": "8%" }
 	},
 	"discontinued": [
 		{ "ticker": "TSM", "name": "台湾セミコン", "reason": "定期積立→スポット買いに切替。watchlist.jsonのspotBuyで通知設定済み" }
@@ -41,6 +46,8 @@
 		"targets": "TSM, VRT, ETN（watchlist.jsonのspotBuyで閾値・推奨量を管理）"
 	},
 	"recentChanges": [
+		"2026-02-26: URA積立を月水→火木に変更（初回発注2026/02/26）",
+		"2026-02-26: 400万円を一括入金。積立の原資＋スポット買い待機資金として運用",
 		"2026-02-23: オルカン月5万円の定期積立を再開（廃止を撤回）",
 		"2026-02-23: スポット買いプールを約14.4万→約9.4万に調整",
 		"2026-02-22: TSM月1株の積立を廃止（スポット買いに切替）",

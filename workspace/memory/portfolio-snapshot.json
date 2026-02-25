@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-02-25T19:18:00+09:00",
+  "totalAssets": 19373120,
+  "breakdown": {
+    "domesticStocks": {
+      "amount": 7929800,
+      "percentage": 40.9,
+      "description": "国内株式（現物）"
+    },
+    "usStocks": {
+      "amount": 4816759,
+      "percentage": 24.8,
+      "description": "米国株式"
+    },
+    "mutualFunds": {
+      "amount": 2027000,
+      "percentage": 10.5,
+      "description": "投資信託（eMAXIS Slim 全世界株式）"
+    },
+    "deposits": {
+      "jpy": 3981702,
+      "usd": 7585,
+      "sweepAccount": 610274,
+      "totalDeposits": 4599561,
+      "percentage": 23.8,
+      "description": "預り金・スウィープ口座"
+    }
+  },
+  "composition": {
+    "equities": 12746559,
+    "bonds_and_diversified": 2027000,
+    "cash_and_liquidity": 4599561
+  },
+  "notes": "SBI での実際のポートフォリオスナップショット。金・銀が国内株式の中心。現金ポジション充実で買い場対応可能。"
+}

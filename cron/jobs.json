@@ -14,24 +14,32 @@
         "kind": "agentTurn",
         "agent": "main",
         "message": "DAILY-NEWS.md を参照し、全ステップを厳密に実行してOpenClaw Newsを作成しメール送信せよ。HTMLテンプレートを絶対に変更するな。",
-        "model": "anthropic/claude-opus-4-6"
+        "model": "default"
       },
       "enabled": true,
       "delivery": {
         "mode": "announce",
-        "channel": "last"
+        "channel": "line"
       },
       "sessionTarget": "isolated",
       "state": {
-        "nextRunAtMs": 1771970400000
-      }
+        "nextRunAtMs": 1772143200000,
+        "lastRunAtMs": 1772057083664,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 5,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 2,
+        "lastError": "model not allowed: anthropic/default"
+      },
+      "updatedAtMs": 1772057083669
     },
     {
       "id": "1aa89b97-9d2d-4d85-afdb-2c724fe7af81",
       "name": "東証後場チェック",
       "enabled": true,
       "createdAtMs": 1771906999487,
-      "updatedAtMs": 1771909283005,
+      "updatedAtMs": 1771995625136,
       "schedule": {
         "kind": "cron",
         "expr": "0 14 * * 1-5"
@@ -44,17 +52,17 @@
       },
       "delivery": {
         "mode": "announce",
-        "channel": "last"
+        "channel": "line"
       },
       "state": {
-        "nextRunAtMs": 1771995600000,
-        "lastRunAtMs": 1771909200014,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 82991,
-        "lastError": "Channel is required (no configured channels detected). Set delivery.channel explicitly or use a main session with a previous channel.",
-        "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 1
+        "nextRunAtMs": 1772082000000,
+        "lastRunAtMs": 1771995600009,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 25127,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
       }
     }
   ]
