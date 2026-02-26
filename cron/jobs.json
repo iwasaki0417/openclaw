@@ -15,23 +15,22 @@
         "agent": "main",
         "message": "DAILY-NEWS.md を参照し、全ステップを厳密に実行してOpenClaw Newsを作成しメール送信せよ。HTMLテンプレートを絶対に変更するな。"
       },
-      "enabled": true,
+      "enabled": false,
       "delivery": {
         "mode": "announce",
         "channel": "line"
       },
       "sessionTarget": "isolated",
       "state": {
-        "nextRunAtMs": 1772143200000,
-        "lastRunAtMs": 1772087198196,
+        "lastRunAtMs": 1772114296158,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 110026,
+        "lastDurationMs": 128156,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
       },
-      "updatedAtMs": 1772087308222
+      "updatedAtMs": 1772115300227
     },
     {
       "id": "1aa89b97-9d2d-4d85-afdb-2c724fe7af81",

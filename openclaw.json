@@ -20,11 +20,14 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "anthropic/claude-haiku-4-5"
+        "primary": "anthropic/claude-sonnet-4-5"
       },
       "models": {
         "anthropic/claude-haiku-4-5": {
           "alias": "haiku"
+        },
+        "anthropic/claude-sonnet-4-5": {
+          "alias": "sonnet"
         }
       },
       "workspace": "/Users/iwasakikyou/.openclaw/workspace",

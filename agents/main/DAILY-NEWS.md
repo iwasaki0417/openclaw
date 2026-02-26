@@ -123,13 +123,13 @@ chart = {
     'options': {
         'legend': {'display': False},
         'scales': {
-            'xAxes': [{'ticks': {'callback': '(v) => v + \"%\"'}, 'gridLines': {'color': '#eee'}}],
+            'xAxes': [{'ticks': {'suffix': '%'}, 'gridLines': {'color': '#eee'}}],
             'yAxes': [{'gridLines': {'display': False}}]
         },
         'plugins': {
             'datalabels': {
                 'anchor': 'end', 'align': 'end', 'color': '#555', 'font': {'size': 11},
-                'formatter': '(v) => (v >= 0 ? \"+\" : \"\") + v.toFixed(1) + \"%\"'
+                'display': True
             }
         }
     }
