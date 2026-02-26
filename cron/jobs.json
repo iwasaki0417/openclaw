@@ -13,8 +13,7 @@
       "payload": {
         "kind": "agentTurn",
         "agent": "main",
-        "message": "DAILY-NEWS.md を参照し、全ステップを厳密に実行してOpenClaw Newsを作成しメール送信せよ。HTMLテンプレートを絶対に変更するな。",
-        "model": "default"
+        "message": "DAILY-NEWS.md を参照し、全ステップを厳密に実行してOpenClaw Newsを作成しメール送信せよ。HTMLテンプレートを絶対に変更するな。"
       },
       "enabled": true,
       "delivery": {
@@ -24,22 +23,22 @@
       "sessionTarget": "isolated",
       "state": {
         "nextRunAtMs": 1772143200000,
-        "lastRunAtMs": 1772057083664,
-        "lastRunStatus": "error",
-        "lastStatus": "error",
-        "lastDurationMs": 5,
-        "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 2,
-        "lastError": "model not allowed: anthropic/default"
+        "lastRunAtMs": 1772087198196,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok",
+        "lastDurationMs": 110026,
+        "lastDeliveryStatus": "delivered",
+        "consecutiveErrors": 0,
+        "lastDelivered": true
       },
-      "updatedAtMs": 1772057083669
+      "updatedAtMs": 1772087308222
     },
     {
       "id": "1aa89b97-9d2d-4d85-afdb-2c724fe7af81",
       "name": "東証後場チェック",
       "enabled": true,
       "createdAtMs": 1771906999487,
-      "updatedAtMs": 1771995625136,
+      "updatedAtMs": 1772082022018,
       "schedule": {
         "kind": "cron",
         "expr": "0 14 * * 1-5"
@@ -55,11 +54,11 @@
         "channel": "line"
       },
       "state": {
-        "nextRunAtMs": 1772082000000,
-        "lastRunAtMs": 1771995600009,
+        "nextRunAtMs": 1772168400000,
+        "lastRunAtMs": 1772082000013,
         "lastRunStatus": "ok",
         "lastStatus": "ok",
-        "lastDurationMs": 25127,
+        "lastDurationMs": 22005,
         "lastDeliveryStatus": "delivered",
         "consecutiveErrors": 0,
         "lastDelivered": true
