@@ -1,11 +1,11 @@
 {
-	"version": 2,
-	"updatedAt": "2026-02-26",
-	"monthlyBudget": "約47.7万円（積立） + 約9.4万円（スポット買い用プール）",
+	"version": 5,
+	"updatedAt": "2026-02-27",
+	"monthlyBudget": "約69.1万円（積立）",
 	"cashReserve": {
 		"amount": 4000000,
 		"date": "2026-02-26",
-		"note": "一括入金400万円。積立の原資＋スポット買い待機資金として運用"
+		"note": "一括入金400万円。積立の原資として運用"
 	},
 	"schedule": {
 		"monthly_2nd": {
@@ -14,7 +14,11 @@
 				{ "fund": "eMAXIS Slim 全世界株式（オルカン）", "amount": 50000, "unit": "円", "note": "月5万円積立" },
 				{ "ticker": "1542.T", "name": "純銀信託", "qty": 3, "unit": "口", "note": "銀DCA 1回目" },
 				{ "ticker": "1326.T", "name": "SPDRゴールド", "qty": 1, "unit": "口" },
-				{ "ticker": "SPY", "name": "S&P500 ETF", "qty": 1, "unit": "株" }
+				{ "ticker": "SPY", "name": "S&P500 ETF", "qty": 1, "unit": "株" },
+				{ "ticker": "TSM", "name": "台湾セミコン", "qty": 1, "unit": "株", "note": "月1株積立再開（2/27決定）" },
+				{ "ticker": "VRT", "name": "Vertiv", "qty": 1, "unit": "株", "note": "月1株積立開始（2/27決定）" },
+				{ "ticker": "ETN", "name": "イートン", "qty": 1, "unit": "株", "note": "月1株積立開始（2/27決定）" },
+				{ "ticker": "IONQ", "name": "IonQ", "qty": 3, "unit": "株", "note": "月3株積立開始（2/27決定）量子セクターをIONQに集約" }
 			]
 		},
 		"monthly_15th": {
@@ -31,21 +35,31 @@
 		}
 	},
 	"monthlySummary": {
-		"オルカン": { "name": "eMAXIS Slim 全世界株式", "amountPerMonth": 50000, "note": "月5万円定期積立", "allocation": "10%" },
-		"1542.T": { "name": "純銀信託", "qtyPerMonth": 5, "note": "2日に3口 + 15日に2口", "allocation": "42%" },
-		"SPY": { "name": "S&P500 ETF", "qtyPerMonth": 1, "allocation": "24%" },
-		"1326.T": { "name": "SPDRゴールド", "qtyPerMonth": 1, "allocation": "16%" },
-		"URA": { "name": "ウラニウムETF", "qtyPerMonth": 8, "note": "火曜+木曜 × 約4週", "allocation": "8%" }
+		"オルカン": { "name": "eMAXIS Slim 全世界株式", "amountPerMonth": 50000, "note": "月5万円定期積立", "allocation": "8%" },
+		"1542.T": { "name": "純銀信託", "qtyPerMonth": 5, "note": "2日に3口 + 15日に2口", "allocation": "34%" },
+		"SPY": { "name": "S&P500 ETF", "qtyPerMonth": 1, "allocation": "18%" },
+		"1326.T": { "name": "SPDRゴールド", "qtyPerMonth": 1, "allocation": "12%" },
+		"URA": { "name": "ウラニウムETF", "qtyPerMonth": 8, "note": "火曜+木曜 × 約4週", "allocation": "11%" },
+		"TSM": { "name": "台湾セミコン", "qtyPerMonth": 1, "note": "月1株（2日）", "allocation": "10%" },
+		"VRT": { "name": "Vertiv", "qtyPerMonth": 1, "note": "月1株（2日）", "allocation": "6%" },
+		"ETN": { "name": "イートン", "qtyPerMonth": 1, "note": "月1株（2日）", "allocation": "9%" },
+		"IONQ": { "name": "IonQ", "qtyPerMonth": 3, "note": "月3株（2日）", "allocation": "3%" }
 	},
 	"discontinued": [
-		{ "ticker": "TSM", "name": "台湾セミコン", "reason": "定期積立→スポット買いに切替。watchlist.jsonのspotBuyで通知設定済み" }
+		{ "ticker": "QBTS", "name": "D-Wave Quantum", "reason": "2/27全株売却。IONQに集約" },
+		{ "ticker": "RGTI", "name": "Rigetti Computing", "reason": "2/27全株売却。IONQに集約" }
 	],
 	"spotBuyPool": {
-		"monthlyReserve": 93730,
-		"note": "TSM廃止で浮いた分。スポット買い用の現金プールとして積み立て",
-		"targets": "TSM, VRT, ETN（watchlist.jsonのspotBuyで閾値・推奨量を管理）"
+		"monthlyReserve": 0,
+		"note": "全スポット買い候補を月次積立に切替。スポット買いプールは廃止",
+		"targets": "なし"
 	},
 	"recentChanges": [
+		"2026-02-27: IONQ月3株の積立を新規開始（QBTS・RGTI売却→IONQに集約）",
+		"2026-02-27: ETN月1株の積立を新規開始（スポット買い→積立に切替）",
+		"2026-02-27: TSM月1株の積立を再開（スポット買い待ちでは機会損失と判断）",
+		"2026-02-27: VRT月1株の積立を新規開始（ポジション2株→毎月育てる）",
+		"2026-02-27: スポット買いプール完全廃止→TSM+VRT+ETN積立に充当",
 		"2026-02-26: URA積立を月水→火木に変更（初回発注2026/02/26）",
 		"2026-02-26: 400万円を一括入金。積立の原資＋スポット買い待機資金として運用",
 		"2026-02-23: オルカン月5万円の定期積立を再開（廃止を撤回）",

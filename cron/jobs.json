@@ -37,7 +37,7 @@
       "name": "東証後場チェック",
       "enabled": true,
       "createdAtMs": 1771906999487,
-      "updatedAtMs": 1772082022018,
+      "updatedAtMs": 1772168449777,
       "schedule": {
         "kind": "cron",
         "expr": "0 14 * * 1-5"
@@ -53,14 +53,14 @@
         "channel": "line"
       },
       "state": {
-        "nextRunAtMs": 1772168400000,
-        "lastRunAtMs": 1772082000013,
-        "lastRunStatus": "ok",
-        "lastStatus": "ok",
-        "lastDurationMs": 22005,
-        "lastDeliveryStatus": "delivered",
-        "consecutiveErrors": 0,
-        "lastDelivered": true
+        "nextRunAtMs": 1772427600000,
+        "lastRunAtMs": 1772168400007,
+        "lastRunStatus": "error",
+        "lastStatus": "error",
+        "lastDurationMs": 49770,
+        "lastDeliveryStatus": "unknown",
+        "consecutiveErrors": 1,
+        "lastError": "cron announce delivery failed"
       }
     }
   ]
