@@ -1,202 +1,222 @@
 {
-	"lastChecked": "2026-02-26T05:55:00+09:00",
-	"lastSummary": { "jp": "2026-02-26", "us": "2026-02-26" },
-	"usdjpy": 156.439,
-	"sbiSnapshot": {
-		"date": "2026-02-26",
-		"totalValue": 19197212,
-		"totalPnl": 4308086,
-		"totalPnlPct": 29.03,
-		"cash": { "jpy": 3994626, "usdDeposit": 7560, "sweepAccount": 810274 }
+	"lastChecked": "2026-03-04T19:30:00+09:00",
+	"lastSummary": {
+		"jp": "2026-03-04",
+		"us": "2026-03-04"
 	},
+	"usdjpy": 157.52,
+	"sbiSnapshot": {
+		"date": "2026-03-04",
+		"cash": {
+			"jpy": 3994626,
+			"usdDeposit": 7560,
+			"sweepAccount": 810274
+		}
+	},
+	"pendingOrders": [
+		{
+			"ticker": "PLTR",
+			"type": "buy",
+			"shares": 5,
+			"limitPrice": 145.00,
+			"expiry": "2026-03-13",
+			"estimatedJpy": 120733
+		},
+		{
+			"ticker": "NVDA",
+			"type": "buy",
+			"shares": 2,
+			"limitPrice": 175.00,
+			"expiry": "2026-03-13",
+			"estimatedJpy": 58284
+		},
+		{
+			"ticker": "MDB",
+			"type": "sell",
+			"shares": 5,
+			"method": "market",
+			"note": "ガイダンス弱・個別要因による損切り。PLTR/NVDA原資に振替"
+		}
+	],
 	"prices": {
 		"1326.T": {
 			"name": "SPDRゴールド",
-			"price": 73720,
-			"prevClose": 71640,
-			"changePct": 2.90,
-			"shares": 94,
-			"cost": 43166,
-			"costTotal": 4057604,
-			"value": 6929680,
-			"pnl": 2872076,
-			"pnlPct": 70.72
+			"price": 74360,
+			"shares": 95,
+			"cost": 43525,
+			"costTotal": 4134875,
+			"value": 7064200,
+			"pnl": 2929325,
+			"pnlPct": 70.83
 		},
 		"1542.T": {
 			"name": "純銀信託",
-			"price": 40370,
-			"prevClose": 39760,
-			"changePct": 1.53,
-			"shares": 23,
-			"cost": 29581,
-			"costTotal": 680363,
-			"value": 928510,
-			"pnl": 248147,
-			"pnlPct": 36.47
+			"price": 38220,
+			"shares": 26,
+			"cost": 31250,
+			"costTotal": 812500,
+			"value": 993720,
+			"pnl": 181220,
+			"pnlPct": 22.30
 		},
-		"^N225": { "name": "日経平均" },
-		"^GSPC": { "name": "S&P500" },
+		"^N225": {
+			"name": "日経平均"
+		},
+		"^GSPC": {
+			"name": "S&P500"
+		},
 		"ETN": {
 			"name": "イートン",
-			"price": 373.855,
-			"prevClose": 374.56,
-			"changePct": -0.19,
-			"shares": 1,
-			"cost": 352.24,
-			"pnlUsd": 21.615,
-			"pnlJpy": 3382,
-			"valueUsd": 373.855,
-			"valueJpy": 58529
+			"price": 355.56,
+			"shares": 2,
+			"cost": 361.96,
+			"pnlUsd": -12.80,
+			"valueUsd": 711.12,
+			"valueJpy": 112036,
+			"dcaSchedule": "毎月1回・1株"
 		},
 		"IONQ": {
 			"name": "IonQ",
-			"price": 33.475,
-			"prevClose": 31.62,
-			"changePct": 5.87,
+			"price": 37.05,
 			"shares": 2,
 			"cost": 62.58,
-			"pnlUsd": -58.65,
-			"pnlJpy": -9176,
-			"valueUsd": 66.95,
-			"valueJpy": 10483
-		},
-		"MDB": {
-			"name": "MongoDB",
-			"price": 312.51,
-			"prevClose": 305.37,
-			"changePct": 2.34,
-			"shares": 5,
-			"cost": 280.07,
-			"pnlUsd": 162.20,
-			"pnlJpy": 29384,
-			"valueUsd": 1562.55,
-			"valueJpy": 242664
+			"pnlUsd": -57.06,
+			"valueUsd": 74.10,
+			"valueJpy": 11678,
+			"note": "塩漬け保有。積立解除済み（2026-03-04）。追加不要"
 		},
 		"NVDA": {
 			"name": "エヌビディア",
-			"price": 196.31,
-			"prevClose": 192.85,
-			"changePct": 1.79,
+			"price": 180.05,
 			"shares": 35,
 			"cost": 167.44,
-			"pnlUsd": 1009.45,
-			"pnlJpy": 157892,
-			"valueUsd": 6870.85,
-			"valueJpy": 1074968
+			"pnlUsd": 441.35,
+			"valueUsd": 6301.75,
+			"valueJpy": 992840,
+			"pendingBuy": {
+				"shares": 2,
+				"limitPrice": 175.00,
+				"expiry": "2026-03-13"
+			},
+			"note": "約定後: 37株・新平均取得$168.12"
 		},
 		"PLTR": {
 			"name": "パランティア",
-			"price": 133.85,
-			"prevClose": 128.84,
-			"changePct": 3.89,
+			"price": 147.22,
 			"shares": 17,
 			"cost": 149.39,
-			"pnlUsd": -262.79,
-			"pnlJpy": -41110,
-			"valueUsd": 2275.45,
-			"valueJpy": 356199
-		},
-		"QBTS": {
-			"name": "D-Wave Quantum",
-			"price": 19.55,
-			"prevClose": 18.66,
-			"changePct": 4.77,
-			"shares": 3,
-			"cost": 37.14,
-			"pnlUsd": -52.77,
-			"pnlJpy": -8261,
-			"valueUsd": 58.65,
-			"valueJpy": 9174
-		},
-		"RGTI": {
-			"name": "リゲッティ",
-			"price": 17.545,
-			"prevClose": 16.48,
-			"changePct": 6.46,
-			"shares": 2,
-			"cost": 44.49,
-			"pnlUsd": -53.89,
-			"pnlJpy": -8433,
-			"valueUsd": 35.09,
-			"valueJpy": 5491
+			"pnlUsd": -36.89,
+			"valueUsd": 2502.74,
+			"valueJpy": 394306,
+			"pendingBuy": {
+				"shares": 5,
+				"limitPrice": 145.00,
+				"expiry": "2026-03-13"
+			},
+			"note": "約定後: 22株・新平均取得$148.22。防衛AI中核銘柄に格上げ"
 		},
 		"SPY": {
 			"name": "S&P500 ETF",
-			"price": 693.29,
-			"prevClose": 687.35,
-			"changePct": 0.86,
-			"shares": 14,
-			"cost": 619.56,
-			"pnlUsd": 1028.06,
-			"pnlJpy": 160868,
-			"valueUsd": 9706.06,
-			"valueJpy": 1518824
+			"price": 680.33,
+			"shares": 15,
+			"cost": 623.73,
+			"pnlUsd": 849.00,
+			"valueUsd": 10204.95,
+			"valueJpy": 1607789,
+			"dcaSchedule": "毎月1回・1口"
 		},
 		"TSLA": {
 			"name": "テスラ",
-			"price": 417.2,
-			"prevClose": 409.38,
-			"changePct": 1.91,
+			"price": 392.43,
 			"shares": 10,
 			"cost": 336.42,
-			"pnlUsd": 807.80,
-			"pnlJpy": 126439,
-			"valueUsd": 4172.00,
-			"valueJpy": 652665
+			"pnlUsd": 560.10,
+			"valueUsd": 3924.30,
+			"valueJpy": 618273
 		},
 		"TSM": {
 			"name": "台湾セミコン",
-			"price": 387.345,
-			"prevClose": 385.75,
-			"changePct": 0.41,
-			"shares": 11,
-			"cost": 234.70,
-			"pnlUsd": 1681.855,
-			"pnlJpy": 263183,
-			"valueUsd": 4260.795,
-			"valueJpy": 666696
+			"price": 353.13,
+			"shares": 12,
+			"cost": 245.77,
+			"pnlUsd": 1288.32,
+			"valueUsd": 4237.56,
+			"valueJpy": 667627,
+			"dcaSchedule": "毎月1回・1株"
 		},
 		"URA": {
 			"name": "ウラニウムETF",
-			"price": 55.115,
-			"prevClose": 54.95,
-			"changePct": 0.30,
-			"shares": 26,
-			"cost": 57.17,
-			"pnlUsd": -53.44,
-			"pnlJpy": -8363,
-			"valueUsd": 1432.99,
-			"valueJpy": 224258
+			"price": 52.00,
+			"shares": 29,
+			"cost": 56.91,
+			"pnlUsd": -142.39,
+			"valueUsd": 1508.00,
+			"valueJpy": 237585,
+			"dcaSchedule": "毎週火・木・1口"
 		},
 		"VRT": {
 			"name": "バーティブ",
-			"price": 261.295,
-			"prevClose": 253.15,
-			"changePct": 3.22,
-			"shares": 2,
-			"cost": 186.32,
-			"pnlUsd": 149.95,
-			"pnlJpy": 23451,
-			"valueUsd": 522.59,
-			"valueJpy": 81755
+			"price": 244.44,
+			"shares": 4,
+			"cost": 219.40,
+			"pnlUsd": 100.16,
+			"valueUsd": 977.76,
+			"valueJpy": 154046,
+			"dcaSchedule": "毎月1回・1株"
 		}
 	},
-	"summary": {
-		"jp": {
-			"value": 7858190,
-			"pnl": 3120223,
-			"pnlPct": 65.82
+	"investmentPlan": {
+		"updatedAt": "2026-03-04",
+		"totalBudget": 1100000,
+		"phase1": {
+			"budget": 350000,
+			"status": "実行中",
+			"executed": [
+				{ "ticker": "URA", "shares": 2, "method": "market", "status": "約定済み" },
+				{ "ticker": "PLTR", "shares": 5, "limitPrice": 145.00, "status": "注文中〜3/13" },
+				{ "ticker": "NVDA", "shares": 2, "limitPrice": 175.00, "status": "注文中〜3/13" }
+			],
+			"remaining": [
+				{ "ticker": "SPY", "shares": 1, "method": "market", "note": "今週中に実行" }
+			]
 		},
-		"us": {
-			"valueUsd": 30924.27,
-			"valueJpy": 4804535,
-			"pnlUsd": 3967.29,
-			"pnlJpy": 680288
+		"phase2": {
+			"budget": 250000,
+			"status": "待機中",
+			"window": "2026-04〜05",
+			"triggers": [
+				"S&P500が$646以下（現在比-5%以上）",
+				"原油$85超",
+				"PLTR $135以下",
+				"NVDA $165以下"
+			],
+			"plan": [
+				{ "ticker": "NVDA", "shares": 3, "targetPrice": 168 },
+				{ "ticker": "PLTR", "shares": 2, "targetPrice": 138 },
+				{ "ticker": "URA", "shares": 3, "targetPrice": 48 },
+				{ "ticker": "SPY", "shares": 1, "targetPrice": 660 }
+			]
 		},
-		"funds": {
-			"value": 2027000,
-			"pnl": 376985,
-			"pnlPct": 22.85
+		"phase3": {
+			"budget": 500000,
+			"status": "待機中",
+			"window": "2026-07-20〜08-15",
+			"note": "中間選挙サイクルの歴史的底打ちゾーン。トランプ勝利宣言直前に最大投入",
+			"plan": [
+				{ "ticker": "PLTR", "shares": 5, "targetPrice": 140 },
+				{ "ticker": "SPY", "shares": 2, "targetPrice": 650 },
+				{ "ticker": "NVDA", "shares": 3, "targetPrice": 170 },
+				{ "ticker": "TSM", "shares": 1, "targetPrice": 340 },
+				{ "ticker": "VRT", "shares": 1, "targetPrice": 235 }
+			]
 		}
+	},
+	"watchCalendar": {
+		"2026-04-01週": "フェーズ2トリガー確認（原油・S&P500）",
+		"2026-05-末": "フェーズ2未実行なら繰り越し決定",
+		"2026-07-中旬": "フェーズ3準備開始・トランプ発言注視",
+		"2026-07-20〜08-15": "フェーズ3実行ウィンドウ",
+		"2026-09〜10": "勝利宣言待ち・保有継続",
+		"2026-11": "中間選挙後ラリー確認・利確検討"
 	}
 }

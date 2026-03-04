@@ -1,0 +1,22 @@
+{
+	"name": "@halohiko/chatwork",
+	"version": "1.0.0",
+	"private": true,
+	"description": "OpenClaw Chatwork channel plugin for PROFESSY CS",
+	"type": "module",
+	"openclaw": {
+		"extensions": [
+			"./index.ts"
+		],
+		"channel": {
+			"id": "chatwork",
+			"label": "Chatwork",
+			"selectionLabel": "Chatwork (Webhook + REST API)",
+			"blurb": "Chatwork messaging channel via Webhook receiver and REST API.",
+			"order": 70,
+			"aliases": [
+				"cw"
+			]
+		}
+	}
+}

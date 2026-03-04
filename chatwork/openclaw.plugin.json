@@ -1,0 +1,39 @@
+{
+	"id": "chatwork",
+	"channels": [
+		"chatwork"
+	],
+	"configSchema": {
+		"type": "object",
+		"additionalProperties": false,
+		"properties": {
+			"apiToken": {
+				"type": "string",
+				"description": "Chatwork API Token"
+			},
+			"webhookSecret": {
+				"type": "string",
+				"description": "Chatwork Webhook signature token"
+			},
+			"webhookPath": {
+				"type": "string",
+				"default": "/chatwork/webhook",
+				"description": "Gateway HTTP path for incoming webhooks"
+			}
+		}
+	},
+	"uiHints": {
+		"apiToken": {
+			"label": "APIトークン",
+			"sensitive": true
+		},
+		"webhookSecret": {
+			"label": "Webhook署名トークン",
+			"sensitive": true
+		},
+		"webhookPath": {
+			"label": "Webhookパス",
+			"placeholder": "/chatwork/webhook"
+		}
+	}
+}

@@ -30,14 +30,15 @@
         "consecutiveErrors": 0,
         "lastDelivered": true
       },
-      "updatedAtMs": 1772115300227
+      "updatedAtMs": 1772115300227,
+      "wakeMode": "now"
     },
     {
       "id": "1aa89b97-9d2d-4d85-afdb-2c724fe7af81",
       "name": "東証後場チェック",
       "enabled": true,
       "createdAtMs": 1771906999487,
-      "updatedAtMs": 1772168449777,
+      "updatedAtMs": 1772600975696,
       "schedule": {
         "kind": "cron",
         "expr": "0 14 * * 1-5"
@@ -53,14 +54,14 @@
         "channel": "line"
       },
       "state": {
-        "nextRunAtMs": 1772427600000,
-        "lastRunAtMs": 1772168400007,
+        "nextRunAtMs": 1772686800000,
+        "lastRunAtMs": 1772600400011,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 49770,
+        "lastDurationMs": 575685,
         "lastDeliveryStatus": "unknown",
         "consecutiveErrors": 1,
-        "lastError": "cron announce delivery failed"
+        "lastError": "No delivery target resolved for channel \"line\". Set delivery.to."
       }
     }
   ]

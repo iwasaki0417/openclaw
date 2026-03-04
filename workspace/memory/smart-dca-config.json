@@ -8,7 +8,14 @@
 			"description": "前週終値からの乖離率で指値水準を通知",
 			"levels": [-2, -5],
 			"tickers": ["TSM", "VRT", "ETN", "SPY", "URA"],
-			"weeklyCloseCache": {},
+			"weeklyCloseCache": {
+				"TSM": 374.5799865722656,
+				"VRT": 254.88999938964844,
+				"ETN": 375.9200134277344,
+				"SPY": 685.989990234375,
+				"URA": 54.34000015258789,
+				"cachedAt": "2026-03-02T08:35:00+09:00"
+			},
 			"note": "月曜朝のHeartbeatで前週金曜の終値をキャッシュ。平日は現在値との乖離率を判定"
 		},
 		"weekdayBias": {
