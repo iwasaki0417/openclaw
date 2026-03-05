@@ -1,222 +1,334 @@
 {
-	"lastChecked": "2026-03-04T19:30:00+09:00",
-	"lastSummary": {
-		"jp": "2026-03-04",
-		"us": "2026-03-04"
-	},
-	"usdjpy": 157.52,
-	"sbiSnapshot": {
-		"date": "2026-03-04",
-		"cash": {
-			"jpy": 3994626,
-			"usdDeposit": 7560,
-			"sweepAccount": 810274
-		}
-	},
-	"pendingOrders": [
-		{
-			"ticker": "PLTR",
-			"type": "buy",
-			"shares": 5,
-			"limitPrice": 145.00,
-			"expiry": "2026-03-13",
-			"estimatedJpy": 120733
-		},
-		{
-			"ticker": "NVDA",
-			"type": "buy",
-			"shares": 2,
-			"limitPrice": 175.00,
-			"expiry": "2026-03-13",
-			"estimatedJpy": 58284
-		},
-		{
-			"ticker": "MDB",
-			"type": "sell",
-			"shares": 5,
-			"method": "market",
-			"note": "ガイダンス弱・個別要因による損切り。PLTR/NVDA原資に振替"
-		}
-	],
-	"prices": {
-		"1326.T": {
-			"name": "SPDRゴールド",
-			"price": 74360,
-			"shares": 95,
-			"cost": 43525,
-			"costTotal": 4134875,
-			"value": 7064200,
-			"pnl": 2929325,
-			"pnlPct": 70.83
-		},
-		"1542.T": {
-			"name": "純銀信託",
-			"price": 38220,
-			"shares": 26,
-			"cost": 31250,
-			"costTotal": 812500,
-			"value": 993720,
-			"pnl": 181220,
-			"pnlPct": 22.30
-		},
-		"^N225": {
-			"name": "日経平均"
-		},
-		"^GSPC": {
-			"name": "S&P500"
-		},
-		"ETN": {
-			"name": "イートン",
-			"price": 355.56,
-			"shares": 2,
-			"cost": 361.96,
-			"pnlUsd": -12.80,
-			"valueUsd": 711.12,
-			"valueJpy": 112036,
-			"dcaSchedule": "毎月1回・1株"
-		},
-		"IONQ": {
-			"name": "IonQ",
-			"price": 37.05,
-			"shares": 2,
-			"cost": 62.58,
-			"pnlUsd": -57.06,
-			"valueUsd": 74.10,
-			"valueJpy": 11678,
-			"note": "塩漬け保有。積立解除済み（2026-03-04）。追加不要"
-		},
-		"NVDA": {
-			"name": "エヌビディア",
-			"price": 180.05,
-			"shares": 35,
-			"cost": 167.44,
-			"pnlUsd": 441.35,
-			"valueUsd": 6301.75,
-			"valueJpy": 992840,
-			"pendingBuy": {
-				"shares": 2,
-				"limitPrice": 175.00,
-				"expiry": "2026-03-13"
-			},
-			"note": "約定後: 37株・新平均取得$168.12"
-		},
-		"PLTR": {
-			"name": "パランティア",
-			"price": 147.22,
-			"shares": 17,
-			"cost": 149.39,
-			"pnlUsd": -36.89,
-			"valueUsd": 2502.74,
-			"valueJpy": 394306,
-			"pendingBuy": {
-				"shares": 5,
-				"limitPrice": 145.00,
-				"expiry": "2026-03-13"
-			},
-			"note": "約定後: 22株・新平均取得$148.22。防衛AI中核銘柄に格上げ"
-		},
-		"SPY": {
-			"name": "S&P500 ETF",
-			"price": 680.33,
-			"shares": 15,
-			"cost": 623.73,
-			"pnlUsd": 849.00,
-			"valueUsd": 10204.95,
-			"valueJpy": 1607789,
-			"dcaSchedule": "毎月1回・1口"
-		},
-		"TSLA": {
-			"name": "テスラ",
-			"price": 392.43,
-			"shares": 10,
-			"cost": 336.42,
-			"pnlUsd": 560.10,
-			"valueUsd": 3924.30,
-			"valueJpy": 618273
-		},
-		"TSM": {
-			"name": "台湾セミコン",
-			"price": 353.13,
-			"shares": 12,
-			"cost": 245.77,
-			"pnlUsd": 1288.32,
-			"valueUsd": 4237.56,
-			"valueJpy": 667627,
-			"dcaSchedule": "毎月1回・1株"
-		},
-		"URA": {
-			"name": "ウラニウムETF",
-			"price": 52.00,
-			"shares": 29,
-			"cost": 56.91,
-			"pnlUsd": -142.39,
-			"valueUsd": 1508.00,
-			"valueJpy": 237585,
-			"dcaSchedule": "毎週火・木・1口"
-		},
-		"VRT": {
-			"name": "バーティブ",
-			"price": 244.44,
-			"shares": 4,
-			"cost": 219.40,
-			"pnlUsd": 100.16,
-			"valueUsd": 977.76,
-			"valueJpy": 154046,
-			"dcaSchedule": "毎月1回・1株"
-		}
-	},
-	"investmentPlan": {
-		"updatedAt": "2026-03-04",
-		"totalBudget": 1100000,
-		"phase1": {
-			"budget": 350000,
-			"status": "実行中",
-			"executed": [
-				{ "ticker": "URA", "shares": 2, "method": "market", "status": "約定済み" },
-				{ "ticker": "PLTR", "shares": 5, "limitPrice": 145.00, "status": "注文中〜3/13" },
-				{ "ticker": "NVDA", "shares": 2, "limitPrice": 175.00, "status": "注文中〜3/13" }
-			],
-			"remaining": [
-				{ "ticker": "SPY", "shares": 1, "method": "market", "note": "今週中に実行" }
-			]
-		},
-		"phase2": {
-			"budget": 250000,
-			"status": "待機中",
-			"window": "2026-04〜05",
-			"triggers": [
-				"S&P500が$646以下（現在比-5%以上）",
-				"原油$85超",
-				"PLTR $135以下",
-				"NVDA $165以下"
-			],
-			"plan": [
-				{ "ticker": "NVDA", "shares": 3, "targetPrice": 168 },
-				{ "ticker": "PLTR", "shares": 2, "targetPrice": 138 },
-				{ "ticker": "URA", "shares": 3, "targetPrice": 48 },
-				{ "ticker": "SPY", "shares": 1, "targetPrice": 660 }
-			]
-		},
-		"phase3": {
-			"budget": 500000,
-			"status": "待機中",
-			"window": "2026-07-20〜08-15",
-			"note": "中間選挙サイクルの歴史的底打ちゾーン。トランプ勝利宣言直前に最大投入",
-			"plan": [
-				{ "ticker": "PLTR", "shares": 5, "targetPrice": 140 },
-				{ "ticker": "SPY", "shares": 2, "targetPrice": 650 },
-				{ "ticker": "NVDA", "shares": 3, "targetPrice": 170 },
-				{ "ticker": "TSM", "shares": 1, "targetPrice": 340 },
-				{ "ticker": "VRT", "shares": 1, "targetPrice": 235 }
-			]
-		}
-	},
-	"watchCalendar": {
-		"2026-04-01週": "フェーズ2トリガー確認（原油・S&P500）",
-		"2026-05-末": "フェーズ2未実行なら繰り越し決定",
-		"2026-07-中旬": "フェーズ3準備開始・トランプ発言注視",
-		"2026-07-20〜08-15": "フェーズ3実行ウィンドウ",
-		"2026-09〜10": "勝利宣言待ち・保有継続",
-		"2026-11": "中間選挙後ラリー確認・利確検討"
-	}
+  "lastChecked": "2026-03-05T09:40:56.413771",
+  "lastSummary": {
+    "jp": "2026-03-05",
+    "us": "2026-03-04"
+  },
+  "usdjpy": 157.52,
+  "sbiSnapshot": {
+    "date": "2026-03-04",
+    "cash": {
+      "jpy": 3994626,
+      "usdDeposit": 7560,
+      "sweepAccount": 810274
+    }
+  },
+  "pendingOrders": [
+    {
+      "ticker": "PLTR",
+      "type": "buy",
+      "shares": 5,
+      "limitPrice": 145.0,
+      "expiry": "2026-03-13",
+      "estimatedJpy": 120733
+    },
+    {
+      "ticker": "NVDA",
+      "type": "buy",
+      "shares": 2,
+      "limitPrice": 175.0,
+      "expiry": "2026-03-13",
+      "estimatedJpy": 58284
+    },
+    {
+      "ticker": "MDB",
+      "type": "sell",
+      "shares": 5,
+      "method": "market",
+      "note": "ガイダンス弱・個別要因による損切り。PLTR/NVDA原資に振替"
+    }
+  ],
+  "prices": {
+    "1326.T": {
+      "name": "SPDRゴールド",
+      "price": 74610,
+      "shares": 95,
+      "cost": 43525,
+      "costTotal": 4134875,
+      "value": 7087950,
+      "pnl": 2929325,
+      "pnlPct": 70.83,
+      "changePct": 0.34
+    },
+    "1542.T": {
+      "name": "純銀信託",
+      "price": 38630,
+      "shares": 26,
+      "cost": 31250,
+      "costTotal": 812500,
+      "value": 1004380,
+      "pnl": 181220,
+      "pnlPct": 22.3,
+      "changePct": 1.07
+    },
+    "^N225": {
+      "name": "日経平均",
+      "price": 54245.54,
+      "changePct": -3.61
+    },
+    "^GSPC": {
+      "name": "S&P500"
+    },
+    "ETN": {
+      "name": "イートン",
+      "price": 355.56,
+      "shares": 2,
+      "cost": 361.96,
+      "pnlUsd": -12.8,
+      "valueUsd": 711.12,
+      "valueJpy": 112036,
+      "dcaSchedule": "毎月1回・1株"
+    },
+    "IONQ": {
+      "name": "IonQ",
+      "price": 37.05,
+      "shares": 2,
+      "cost": 62.58,
+      "pnlUsd": -57.06,
+      "valueUsd": 74.1,
+      "valueJpy": 11678,
+      "note": "塩漬け保有。積立解除済み（2026-03-04）。追加不要"
+    },
+    "NVDA": {
+      "name": "エヌビディア",
+      "price": 180.05,
+      "shares": 35,
+      "cost": 167.44,
+      "pnlUsd": 441.35,
+      "valueUsd": 6301.75,
+      "valueJpy": 992840,
+      "pendingBuy": {
+        "shares": 2,
+        "limitPrice": 175.0,
+        "expiry": "2026-03-13"
+      },
+      "note": "約定後: 37株・新平均取得$168.12"
+    },
+    "PLTR": {
+      "name": "パランティア",
+      "price": 147.22,
+      "shares": 17,
+      "cost": 149.39,
+      "pnlUsd": -36.89,
+      "valueUsd": 2502.74,
+      "valueJpy": 394306,
+      "pendingBuy": {
+        "shares": 5,
+        "limitPrice": 145.0,
+        "expiry": "2026-03-13"
+      },
+      "note": "約定後: 22株・新平均取得$148.22。防衛AI中核銘柄に格上げ"
+    },
+    "SPY": {
+      "name": "S&P500 ETF",
+      "price": 680.33,
+      "shares": 15,
+      "cost": 623.73,
+      "pnlUsd": 849.0,
+      "valueUsd": 10204.95,
+      "valueJpy": 1607789,
+      "dcaSchedule": "毎月1回・1口"
+    },
+    "TSLA": {
+      "name": "テスラ",
+      "price": 392.43,
+      "shares": 10,
+      "cost": 336.42,
+      "pnlUsd": 560.1,
+      "valueUsd": 3924.3,
+      "valueJpy": 618273
+    },
+    "TSM": {
+      "name": "台湾セミコン",
+      "price": 353.13,
+      "shares": 12,
+      "cost": 245.77,
+      "pnlUsd": 1288.32,
+      "valueUsd": 4237.56,
+      "valueJpy": 667627,
+      "dcaSchedule": "毎月1回・1株"
+    },
+    "URA": {
+      "name": "ウラニウムETF",
+      "price": 52.0,
+      "shares": 29,
+      "cost": 56.91,
+      "pnlUsd": -142.39,
+      "valueUsd": 1508.0,
+      "valueJpy": 237585,
+      "dcaSchedule": "毎週火・木・1口"
+    },
+    "VRT": {
+      "name": "バーティブ",
+      "price": 244.44,
+      "shares": 4,
+      "cost": 219.4,
+      "pnlUsd": 100.16,
+      "valueUsd": 977.76,
+      "valueJpy": 154046,
+      "dcaSchedule": "毎月1回・1株"
+    }
+  },
+  "investmentPlan": {
+    "updatedAt": "2026-03-04",
+    "totalBudget": 1100000,
+    "phase1": {
+      "budget": 350000,
+      "status": "実行中",
+      "executed": [
+        {
+          "ticker": "URA",
+          "shares": 2,
+          "method": "market",
+          "status": "約定済み"
+        },
+        {
+          "ticker": "PLTR",
+          "shares": 5,
+          "limitPrice": 145.0,
+          "status": "注文中〜3/13"
+        },
+        {
+          "ticker": "NVDA",
+          "shares": 2,
+          "limitPrice": 175.0,
+          "status": "注文中〜3/13"
+        }
+      ],
+      "remaining": [
+        {
+          "ticker": "SPY",
+          "shares": 1,
+          "method": "market",
+          "note": "今週中に実行"
+        }
+      ]
+    },
+    "phase2": {
+      "budget": 250000,
+      "status": "待機中",
+      "window": "2026-04〜05",
+      "triggers": [
+        "S&P500が$646以下（現在比-5%以上）",
+        "原油$85超",
+        "PLTR $135以下",
+        "NVDA $165以下"
+      ],
+      "plan": [
+        {
+          "ticker": "NVDA",
+          "shares": 3,
+          "targetPrice": 168
+        },
+        {
+          "ticker": "PLTR",
+          "shares": 2,
+          "targetPrice": 138
+        },
+        {
+          "ticker": "URA",
+          "shares": 3,
+          "targetPrice": 48
+        },
+        {
+          "ticker": "SPY",
+          "shares": 1,
+          "targetPrice": 660
+        }
+      ]
+    },
+    "phase3": {
+      "budget": 500000,
+      "status": "待機中",
+      "window": "2026-07-20〜08-15",
+      "note": "中間選挙サイクルの歴史的底打ちゾーン。トランプ勝利宣言直前に最大投入",
+      "plan": [
+        {
+          "ticker": "PLTR",
+          "shares": 5,
+          "targetPrice": 140
+        },
+        {
+          "ticker": "SPY",
+          "shares": 2,
+          "targetPrice": 650
+        },
+        {
+          "ticker": "NVDA",
+          "shares": 3,
+          "targetPrice": 170
+        },
+        {
+          "ticker": "TSM",
+          "shares": 1,
+          "targetPrice": 340
+        },
+        {
+          "ticker": "VRT",
+          "shares": 1,
+          "targetPrice": 235
+        }
+      ]
+    }
+  },
+  "watchCalendar": {
+    "2026-04-01週": "フェーズ2トリガー確認（原油・S&P500）",
+    "2026-05-末": "フェーズ2未実行なら繰り越し決定",
+    "2026-07-中旬": "フェーズ3準備開始・トランプ発言注視",
+    "2026-07-20〜08-15": "フェーズ3実行ウィンドウ",
+    "2026-09〜10": "勝利宣言待ち・保有継続",
+    "2026-11": "中間選挙後ラリー確認・利確検討"
+  },
+  "smartDca": {
+    "lastChecked": "2026-03-05T09:40:56.413771",
+    "limitOrder": {
+      "TSM": {
+        "prevWeekClose": 374.58,
+        "currentPrice": 353.13,
+        "gapPct": -5.73,
+        "triggered": [
+          -5
+        ]
+      },
+      "VRT": {
+        "prevWeekClose": 254.89,
+        "currentPrice": 244.44,
+        "gapPct": -4.1,
+        "triggered": [
+          -2
+        ]
+      },
+      "ETN": {
+        "prevWeekClose": 375.92,
+        "currentPrice": 355.56,
+        "gapPct": -5.42,
+        "triggered": [
+          -5
+        ]
+      },
+      "SPY": {
+        "prevWeekClose": 685.99,
+        "currentPrice": 680.33,
+        "gapPct": -0.83,
+        "triggered": []
+      },
+      "URA": {
+        "prevWeekClose": 54.34,
+        "currentPrice": 52.0,
+        "gapPct": -4.31,
+        "triggered": [
+          -2
+        ]
+      }
+    },
+    "weekdayAlert": "木曜（preferredDays該当）",
+    "alerts": [
+      "gold_down_3.33%",
+      "TSM_-5.73%_spotbuy",
+      "ETN_-5.42%_spotbuy",
+      "VRT_-4.10%_limitorder",
+      "URA_-4.31%_limitorder"
+    ],
+    "note": "9:40 AM: ゴールド・純銀とも反発中。新規アラートなし。"
+  }
 }

@@ -1,0 +1,46 @@
+date: 2026-03-05
+status: sent
+subject: OpenClaw News 03/05
+recipient: iwasaki@professy.co.jp
+news_count: 🔴3 🟡4 🟢3
+api_requests: 20
+chart: /tmp/openclaw-performance-bar.png (36549 bytes)
+html: /tmp/openclaw-daily-news.html (27092 bytes)
+
+key_prices:
+  NVDA: $183.04 (-1.0%)
+  SPY: $685.13 (-0.6%)
+  TSLA: $405.94 (-0.65%)
+  TSM: $357.44 (-5.14%)
+  PLTR: $153.19 (+12.69%)
+  URA: $52.77 (-3.83%)
+  VRT: $251.28 (-3.07%)
+  ETN: $354.46 (-5.37%)
+  IONQ: $37.13 (-9.17%)
+  1326.T: 74360 (-0.2%)
+  1542.T: 38220 (-6.76%)
+  USDJPY: 157.02
+
+phase2_triggers:
+  oil_85: FIRED
+  spy_646: not_fired ($685.13)
+  pltr_135: not_fired ($153.19)
+  nvda_165: not_fired ($183.04)
+**[OpenClaw News] ニュース10件をメール送信（🔴3 🟡4 🟢3）**
+
+全ステップ完了:
+
+| Step | 内容 | 結果 |
+|------|------|------|
+| 0 | watchlist / stock-history / dca-schedule 読込 | ✅ |
+| 1 | 12銘柄 + USD/JPY 取得（sleep 2×12） | ✅ PLTR+12.69%、1542.T-6.76% |
+| 2 | 8銘柄の決算日チェック（sleep 3×8） | ✅ 7日以内の決算なし |
+| 3 | 12カテゴリのニュース収集（sleep 3×12） | ✅ 原油$85超発動を確認 |
+| 4 | QuickChart 横棒グラフ生成（保有額順） | ✅ 36KB PNG |
+| 5 | 分析・フィルタリング・フェーズ判定 | ✅ フェーズ2トリガー1つ発動 |
+| 6 | HTMLメール生成（テンプレート厳守） | ✅ 27KB |
+| 7 | ファイル保存 + send-email.py 実行 | ✅ iwasaki@professy.co.jp へ送信完了 |
+| 8 | macOS通知 | ✅ "Purr" 通知送信済み |
+
+**本日の重要事項:** フェーズ2トリガー「原油$85超」が発動。明日3/6（金）の米雇用統計の結果次第で、PLTR指値（$145→$155）・NVDA指値（$175→$180）の見直しとSPY 1株（フェーズ1残タスク）の実行を推奨。
+[2026-03-05 07:17:56] === OpenClaw News 完了 (exit: 0) ===
