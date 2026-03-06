@@ -1,5 +1,5 @@
 {
-  "lastChecked": "2026-03-05T09:40:56.413771",
+  "lastChecked": "2026-03-05T16:12:32.631090",
   "lastSummary": {
     "jp": "2026-03-05",
     "us": "2026-03-04"
@@ -41,30 +41,30 @@
   "prices": {
     "1326.T": {
       "name": "SPDRゴールド",
-      "price": 74610,
+      "price": 74280,
       "shares": 95,
       "cost": 43525,
       "costTotal": 4134875,
-      "value": 7087950,
+      "value": 7056600,
       "pnl": 2929325,
       "pnlPct": 70.83,
-      "changePct": 0.34
+      "changePct": -3.46
     },
     "1542.T": {
       "name": "純銀信託",
-      "price": 38630,
+      "price": 37300,
       "shares": 26,
       "cost": 31250,
       "costTotal": 812500,
-      "value": 1004380,
+      "value": 969800,
       "pnl": 181220,
       "pnlPct": 22.3,
-      "changePct": 1.07
+      "changePct": -5.5
     },
     "^N225": {
       "name": "日経平均",
-      "price": 54245.54,
-      "changePct": -3.61
+      "price": 55278.06,
+      "changePct": 1.77
     },
     "^GSPC": {
       "name": "S&P500"
