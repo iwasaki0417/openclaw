@@ -1,0 +1,22 @@
+{
+	"name": "@openclaw-custom/line",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Custom LINE channel plugin (bypasses stock plugin gateway auth bug)",
+	"type": "module",
+	"openclaw": {
+		"extensions": [
+			"./index.ts"
+		],
+		"channel": {
+			"id": "line-custom",
+			"label": "LINE (Custom)",
+			"selectionLabel": "LINE Messaging API (Custom Webhook)",
+			"blurb": "Custom LINE channel plugin using registerHttpHandler to bypass gateway auth issues.",
+			"order": 65,
+			"aliases": [
+				"lc"
+			]
+		}
+	}
+}

@@ -112,6 +112,9 @@
         "enabled": false
       },
       "line": {
+        "enabled": false
+      },
+      "line-custom": {
         "enabled": true
       }
     }

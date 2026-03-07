@@ -38,7 +38,7 @@
       "name": "東証後場チェック",
       "enabled": true,
       "createdAtMs": 1771906999487,
-      "updatedAtMs": 1772687924986,
+      "updatedAtMs": 1772773234031,
       "schedule": {
         "kind": "cron",
         "expr": "0 14 * * 1-5"
@@ -54,13 +54,13 @@
         "channel": "line"
       },
       "state": {
-        "nextRunAtMs": 1772773200000,
-        "lastRunAtMs": 1772687136033,
+        "nextRunAtMs": 1773032400000,
+        "lastRunAtMs": 1772773200011,
         "lastRunStatus": "error",
         "lastStatus": "error",
-        "lastDurationMs": 788953,
+        "lastDurationMs": 34020,
         "lastDeliveryStatus": "unknown",
-        "consecutiveErrors": 2,
+        "consecutiveErrors": 3,
         "lastError": "No delivery target resolved for channel \"line\". Set delivery.to."
       }
     }

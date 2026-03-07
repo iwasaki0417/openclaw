@@ -1,10 +1,10 @@
 {
-  "lastChecked": "2026-03-05T16:12:32.631090",
+  "lastChecked": "2026-03-07T08:07:42.247791+09:00",
   "lastSummary": {
-    "jp": "2026-03-05",
-    "us": "2026-03-04"
+    "jp": "2026-03-06",
+    "us": "2026-03-07"
   },
-  "usdjpy": 157.52,
+  "usdjpy": 157.832,
   "sbiSnapshot": {
     "date": "2026-03-04",
     "cash": {
@@ -41,30 +41,30 @@
   "prices": {
     "1326.T": {
       "name": "SPDRゴールド",
-      "price": 74280,
+      "price": 74230,
       "shares": 95,
       "cost": 43525,
       "costTotal": 4134875,
-      "value": 7056600,
-      "pnl": 2929325,
-      "pnlPct": 70.83,
-      "changePct": -3.46
+      "value": 6977620,
+      "pnl": 2920016,
+      "pnlPct": 71.96,
+      "changePct": -0.07
     },
     "1542.T": {
       "name": "純銀信託",
-      "price": 37300,
+      "price": 38000,
       "shares": 26,
       "cost": 31250,
       "costTotal": 812500,
-      "value": 969800,
-      "pnl": 181220,
-      "pnlPct": 22.3,
-      "changePct": -5.5
+      "value": 874000,
+      "pnl": 193637,
+      "pnlPct": 28.46,
+      "changePct": 1.88
     },
     "^N225": {
       "name": "日経平均",
-      "price": 55278.06,
-      "changePct": 1.77
+      "price": 55602.07,
+      "changePct": 0.59
     },
     "^GSPC": {
       "name": "S&P500"
@@ -280,44 +280,50 @@
     "2026-11": "中間選挙後ラリー確認・利確検討"
   },
   "smartDca": {
-    "lastChecked": "2026-03-05T09:40:56.413771",
+    "lastChecked": "2026-03-07T08:07:42.247791+09:00",
     "limitOrder": {
       "TSM": {
         "prevWeekClose": 374.58,
-        "currentPrice": 353.13,
-        "gapPct": -5.73,
+        "currentPrice": 338.86,
+        "gapPct": -9.54,
         "triggered": [
+          -2,
           -5
         ]
       },
       "VRT": {
         "prevWeekClose": 254.89,
-        "currentPrice": 244.44,
-        "gapPct": -4.1,
+        "currentPrice": 241.745,
+        "gapPct": -5.16,
         "triggered": [
-          -2
+          -2,
+          -5
         ]
       },
       "ETN": {
         "prevWeekClose": 375.92,
-        "currentPrice": 355.56,
-        "gapPct": -5.42,
+        "currentPrice": 347.83,
+        "gapPct": -7.47,
         "triggered": [
+          -2,
           -5
         ]
       },
       "SPY": {
         "prevWeekClose": 685.99,
-        "currentPrice": 680.33,
-        "gapPct": -0.83,
-        "triggered": []
+        "currentPrice": 672.3,
+        "gapPct": -2.0,
+        "triggered": [
+          -2
+        ]
       },
       "URA": {
         "prevWeekClose": 54.34,
-        "currentPrice": 52.0,
-        "gapPct": -4.31,
+        "currentPrice": 48.8,
+        "gapPct": -10.2,
         "triggered": [
-          -2
+          -2,
+          -5
         ]
       }
     },
@@ -329,6 +335,7 @@
       "VRT_-4.10%_limitorder",
       "URA_-4.31%_limitorder"
     ],
-    "note": "9:40 AM: ゴールド・純銀とも反発中。新規アラートなし。"
+    "note": "08:07 AM: 米国大引後チェック完了。limitOrder & EMA20判定実施。5銘柄でトリガー発生。",
+    "ema20": {}
   }
 }
