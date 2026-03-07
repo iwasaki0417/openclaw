@@ -7,7 +7,7 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"noEmit": true,
-		"typeRoots": ["../node_modules/@types"],
+		"typeRoots": ["./node_modules/@types", "../node_modules/@types"],
 		"paths": {
 			"openclaw/plugin-sdk": ["./src/openclaw-plugin-sdk.d.ts"]
 		}

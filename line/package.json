@@ -18,5 +18,8 @@
 				"lc"
 			]
 		}
+	},
+	"devDependencies": {
+		"@types/node": "*"
 	}
 }
